@@ -38,8 +38,12 @@ const BenefitsSection = () => {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 1.2, ease: [0.25, 1, 0.5, 1] },
+    },
   };
 
   return (
@@ -47,10 +51,10 @@ const BenefitsSection = () => {
       <Container className="max-w-[1250px]">
         {/* Title Block */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
           className="max-w-[1050px] mx-auto mb-16 md:mb-20"
         >
           <h2 className="uppercase font-bold text-[#111] !leading-[1.15] tracking-[0.2rem] mb-8 md:mb-10 block">

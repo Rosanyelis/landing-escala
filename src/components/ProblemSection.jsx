@@ -12,10 +12,10 @@ const ProblemSection = () => {
       <Container>
         <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-[1100px] mx-auto">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
             className="flex-1 pr-0 md:pr-10 lg:pr-14 relative w-full"
           >
             {/* Orange Vertical Line for Desktop */}
@@ -38,10 +38,10 @@ const ProblemSection = () => {
           <div className="md:hidden w-full h-[3px] bg-[#EC613B] rounded-[2px] my-8"></div>
 
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 1.2, delay: 0.3, ease: [0.25, 1, 0.5, 1] }}
             className="flex-1 pl-0 md:pl-10 lg:pl-14 w-full"
           >
             <div className="bg-[#26211F] rounded-[20px] py-9 px-8 md:px-10 shadow-[0_20px_50px_rgba(0,0,0,0.15)] relative overflow-hidden">

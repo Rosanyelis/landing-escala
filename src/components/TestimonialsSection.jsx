@@ -79,9 +79,10 @@ const TestimonialsSection = () => {
     >
       <Container>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
           className="text-center mb-8"
           ref={sectionRef}
         >

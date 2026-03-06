@@ -8,14 +8,15 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="pt-24 md:pt-30 lg:pt-48 pb-16 lg:pb-24 relative overflow-hidden bg-white w-full"
+      className="pt-28 md:pt-30 lg:pt-48 pb-16 lg:pb-24 relative overflow-hidden bg-white w-full"
     >
       <Container className="max-w-[1300px]">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 items-start lg:items-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
             className="md:col-span-7 lg:col-span-7 flex flex-col items-center text-center w-full"
           >
             {/* The h1 matches the exact typographical layout of the image */}
@@ -54,9 +55,10 @@ const HeroSection = () => {
 
           {/* Form Column */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 1.2, delay: 0.3, ease: [0.25, 1, 0.5, 1] }}
             className="md:col-span-5 lg:col-span-5 relative z-10 w-full max-w-[480px] mx-auto"
             id="diagnostico-form"
           >

@@ -69,10 +69,10 @@ const TransformationSection = () => {
     <Section id="transformations" className="bg-white py-16 md:py-24">
       <Container className="max-w-[1250px]">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
           className="text-center mb-16 md:mb-20"
         >
           <h2 className="uppercase font-black text-[#111] !leading-[1.1] tracking-[0.2rem] text-[28px] md:text-[36px] lg:text-[46px] max-w-[1000px] mx-auto">
@@ -85,10 +85,14 @@ const TransformationSection = () => {
           {transformations.map((item, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{
+                duration: 1.2,
+                delay: index * 0.15,
+                ease: [0.25, 1, 0.5, 1],
+              }}
               className="bg-[#F8F9FA] rounded-[24px] shadow-[0_12px_35px_rgba(0,0,0,0.12)] hover:shadow-[0_15px_40px_rgba(236,97,59,0.18)] transition-all duration-300 flex flex-col h-full border border-[#E5E7EB]"
             >
               <div className="relative w-full h-[180px] lg:h-[200px]">

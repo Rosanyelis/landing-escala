@@ -70,10 +70,10 @@ const ClientsSection = () => {
       >
         <Container>
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
             className="mb-16 md:mb-24"
           >
             <h2 className="uppercase font-bebas text-black leading-none mb-10 md:mb-16 text-center text-[40px] md:text-[56px] lg:text-[68px] tracking-[0.02em]">
@@ -105,10 +105,10 @@ const ClientsSection = () => {
       <Section className="pb-16 pt-8 md:pb-24">
         <Container>
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
             className="max-w-[1100px] mx-auto mb-20 relative text-center"
           >
             <h3 className="uppercase font-bebas text-black text-[32px] md:text-[44px] lg:text-[48px] mb-8 md:mb-12 tracking-wide leading-none">

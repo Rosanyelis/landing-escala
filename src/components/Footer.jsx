@@ -1,5 +1,6 @@
 import React from "react";
 import Container from "../layout/Container";
+import logoImg from "../assets/img/logo.webp";
 
 const Footer = () => {
   const links = [
@@ -30,9 +31,12 @@ const Footer = () => {
           {/* Logo and Info */}
           <div className="flex flex-col">
             <div className="mb-14">
-              <span className="text-white text-[32px] md:text-[38px] font-bold tracking-[0.25em] uppercase font-sans">
-                ESCALA
-              </span>
+              <img
+                src={logoImg}
+                alt="ESCALA Logo"
+                className="h-16 md:h-28 w-auto object-contain cursor-pointer"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              />
             </div>
 
             <div className="text-[14px] md:text-[15px] leading-relaxed mb-12">

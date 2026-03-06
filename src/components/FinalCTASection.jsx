@@ -13,10 +13,10 @@ const FinalCTASection = () => {
       >
         <Container>
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
             className="text-center mb-16"
           >
             <h2 className="uppercase font-bold text-gray-900 leading-tight">
@@ -30,10 +30,14 @@ const FinalCTASection = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 max-w-[1100px] mx-auto items-start">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{
+                duration: 1.2,
+                delay: 0.2,
+                ease: [0.25, 1, 0.5, 1],
+              }}
               className="lg:col-span-5 flex flex-col items-start bg-[#2B2B2B] rounded-[30px] p-8 md:p-10 lg:p-12 shadow-[12px_12px_0px_#EC613B] text-white relative overflow-hidden h-fit"
             >
               {/* Background design */}
@@ -126,10 +130,14 @@ const FinalCTASection = () => {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{
+                duration: 1.2,
+                delay: 0.4,
+                ease: [0.25, 1, 0.5, 1],
+              }}
               className="lg:col-span-7 relative z-10"
             >
               <LeadForm />
