@@ -21,14 +21,14 @@ const ProblemSection = () => {
             {/* Orange Vertical Line for Desktop */}
             <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-[3px] h-[80%] bg-[#EC613B] rounded-[2px]"></div>
 
-            <h2 className="uppercase font-black text-gray-900 !leading-[1.05] tracking-[0.02em] text-left ">
-              <span className="block text-[28px] md:text-[34px] lg:text-[52px]">
+            <h2 className="uppercase font-black text-gray-900 !leading-[1.05] tracking-[0.02em] text-center md:text-left mb-6">
+              <span className="block text-[32px] md:text-[34px] lg:text-[52px]">
                 MUCHAS <span className="text-[#EC613B]">PYMES</span> CREEN QUE
               </span>
-              <span className="block text-[28px] md:text-[34px] lg:text-[52px]">
+              <span className="block text-[32px] md:text-[34px] lg:text-[52px]">
                 TIENEN CULTURA PORQUE
               </span>
-              <span className="block text-[28px] md:text-[34px] lg:text-[52px]">
+              <span className="block text-[32px] md:text-[34px] lg:text-[52px]">
                 TIENEN VALORES ESCRITOS
               </span>
             </h2>

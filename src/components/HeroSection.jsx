@@ -1,15 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Container from "../layout/Container";
-import Section from "../layout/Section";
 import LeadForm from "./LeadForm";
 import heroImg from "../assets/img/hero.webp";
 
 const HeroSection = () => {
   return (
-    <Section
+    <section
       id="hero"
-      className="pt-24 lg:pt-32 pb-16 lg:pb-24 relative overflow-hidden bg-white"
+      className="pt-24 md:pt-30 lg:pt-48 pb-16 lg:pb-24 relative overflow-hidden bg-white w-full"
     >
       <Container className="max-w-[1300px]">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 items-start lg:items-center">
@@ -65,7 +64,7 @@ const HeroSection = () => {
           </motion.div>
         </div>
       </Container>
-    </Section>
+    </section>
   );
 };
 

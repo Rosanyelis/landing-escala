@@ -24,7 +24,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-black text-white pt-20 pb-10">
+    <footer className="bg-black text-white pt-20 pb-28 md:pb-10">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-8 mb-20 max-w-[1100px] mx-auto">
           {/* Logo and Info */}
@@ -35,9 +35,11 @@ const Footer = () => {
               </span>
             </div>
 
-            <div className="text-[14px] md:text-[15px] text-white leading-relaxed mb-12">
-              <p>Avenida Presidente Masaryk 111, 1º, CDMX (México)</p>
-              <p>Calle Gran Vía Nº4, Madrid (España)</p>
+            <div className="text-[14px] md:text-[15px] leading-relaxed mb-12">
+              <p className="text-white">
+                Avenida Presidente Masaryk 111, 1º, CDMX (México)
+              </p>
+              <p className="text-white">Calle Gran Vía Nº4, Madrid (España)</p>
             </div>
 
             <div className="flex flex-col gap-4 mb-10 text-[18px] md:text-[20px] font-sans">
@@ -137,12 +139,18 @@ const Footer = () => {
 
         {/* Copyright and Legal */}
         <div className="border-t border-gray-100/30 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 text-[13px] text-gray-400 max-w-[1100px] mx-auto">
-          <p>© 2025 Escalamiento Empresarial</p>
+          <p className="text-white">© 2025 Escalamiento Empresarial</p>
           <div className="flex space-x-6">
-            <a href="#" className="hover:text-white transition-colors">
+            <a
+              href="#"
+              className="hover:text-[#EC613B] transition-colors text-white"
+            >
               Aviso de Privacidad
             </a>
-            <a href="#" className="hover:text-white transition-colors">
+            <a
+              href="#"
+              className="hover:text-[#EC613B] transition-colors text-white"
+            >
               Términos y Condiciones
             </a>
           </div>

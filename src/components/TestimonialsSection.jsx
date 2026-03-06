@@ -7,29 +7,37 @@ const TestimonialsSection = () => {
   const testimonials = [
     {
       id: 1,
-      quote:
-        'Cuando nosotros afirmamos nuestra cultura, el equipo se consolidó al nivel de decir: "A mí no me van a venir con que esta es una empresa de conveniencia".',
-      name: "René Huerta",
-      company: "Abelatto - Tlalnepantla, Estado de México",
+      quote: "Cuando el equipo se alinea, todo cambia.",
+      name: "Joan Vicente, Hästens ",
+      company: "CDMX, México",
       results:
-        "De 250 a 600 m2 en su planta. +200% de utilidad y bajó rotación al 12% anual. Tiempos de entrega mejorados en un 80%...",
+        "Antes, cada semana parecía una carrera contra el caos. Reuniones desordenadas, prioridades confusas y un equipo que hacía mucho… pero avanzaba poco. Con ESCALA instalamos un sistema de trabajo donde cada persona sabe lo que debe lograr, cómo medirlo y cómo colaborar con los demás. Hoy trabajamos con foco, disciplina y energía. El resultado: aumentamos nuestras conversiones de venta en un 50% en tres meses y, por primera vez, sentimos que todos remamos hacia el mismo lado.",
     },
     {
       id: 2,
       quote:
         "De un negocio que se nos venía encima a una empresa con crecimiento.",
-      name: "Rosendo Reynoso",
+      name: "Berenice Reynoso, Stocker",
       company: "Baja California, México",
       results:
-        "Más de 40 años operando y no me daba cuenta que operamos de manera intuitiva... Hoy somos más de 120 empleados en control.",
+        "Con 80 empleados y cinco sucursales, la operación nos rebasaba. No teníamos claridad en roles, ni estructura, ni control de indicadores. ESCALA nos ayudó a rediseñar por completo nuestra cultura de trabajo. Hoy operamos con KPIs, perfiles bien definidos, procesos claros y una mentalidad orientada a resultados. El impacto ha sido profundo: aumentamos la productividad general un 35%, reducimos errores operativos y recuperamos el control de la empresa. Pasamos de sobrevivir a liderar.",
     },
     {
       id: 3,
-      quote: "Se resolvían las dudas que se arrastraban por semanas.",
-      name: "Víctor",
-      company: "La Camilla, Comarca Lagunera - Mexicali, B.C.",
+      quote: "De la improvisación al crecimiento estructurado y rentable",
+      name: "Viridiana Michel Félix, Concretos Duramex",
+      company: "Mexicali, México",
       results:
-        "Tuvimos un despegue en ventas. Se resolvieron dudas que nos frenaban meses. Nos dio dirección con reglas claras que los líderes adoptaron.",
+        "Nuestro equipo comercial tenía mucho talento, pero funcionaba sin estructura. Implementar una cultura de seguimiento, rendición de cuentas y claridad en el proceso de ventas fue un antes y después. En solo dos meses aumentamos nuestras ventas entre un 30 y 40%, pero más importante aún: creamos una cultura de responsabilidad, aprendizaje continuo y foco en resultados. Hoy tenemos un equipo más motivado, más sólido y mucho más rentable.",
+    },
+    {
+      id: 4,
+      quote:
+        "El cambio más profundo fue mental: de operar con miedo a liderar con confianza",
+      name: "Leo Kilmartin, Innovation 3 Composites",
+      company: "Mallorca, España",
+      results:
+        "Antes no podía delegar. Sentía que si no lo hacía yo, no salía bien. La verdad es que no confiaba en mi equipo porque no teníamos procesos ni claridad. Con ESCALA implementamos reportes, procedimientos y un nuevo mindset de gestión. Aprendí a soltar porque ahora hay estructura que respalda. Hoy tomo decisiones con rapidez, el equipo responde con responsabilidad y hemos triplicado nuestra capacidad operativa sin sacrificar calidad ni control. Más que escalar el negocio, transformamos la cultura que lo sostiene.",
     },
   ];
 
@@ -74,7 +82,7 @@ const TestimonialsSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8"
           ref={sectionRef}
         >
           <div className="flex justify-left items-left gap-4 mb-4">
@@ -128,7 +136,7 @@ const TestimonialsSection = () => {
             </svg>
           </button>
 
-          <div className="relative w-full h-[550px] md:h-[480px] flex items-center justify-center px-4 md:px-0">
+          <div className="relative w-full grid place-items-center px-4 md:px-0 py-8 md:py-12">
             {testimonials.map((item, index) => {
               let position = "hidden";
               if (index === activeIndex) position = "center";
@@ -165,8 +173,8 @@ const TestimonialsSection = () => {
                   initial={false}
                   animate={position}
                   variants={variants}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
-                  className={`absolute w-full max-w-[340px] md:max-w-[520px] rounded-[30px] p-8 md:p-10 flex flex-col justify-center text-center cursor-pointer
+                  transition={{ duration: 8, ease: [0.25, 1, 0.5, 1] }}
+                  className={`col-start-1 row-start-1 w-full h-fit max-w-[340px] md:max-w-[520px] rounded-[30px] p-8 md:p-10 flex flex-col justify-center text-center cursor-pointer
                     ${
                       isActive
                         ? "bg-gradient-to-br from-[#2F2522] to-[#17110F] shadow-[0_20px_60px_rgba(236,97,59,0.3)] border border-[#EC613B]/40"

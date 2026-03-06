@@ -56,9 +56,10 @@ const TransformationSection = () => {
       icon: icon5,
     },
     {
-      title: "Tu cultura, de forma práctica y tangible en un manual vivo:",
+      title:
+        "Reconocimiento emocional inteligente que multiplica el compromiso:",
       description:
-        "Un documento práctico que guíe desde la inducción hasta la toma de decisiones diarias, para que todos sepan cómo actuar y hacia dónde van.",
+        "Diseñamos sistemas para evaluar, reforzar y premiar las conductas clave que sostienen el crecimiento de tu negocio.",
       imageSrc: card6,
       icon: icon6,
     },
