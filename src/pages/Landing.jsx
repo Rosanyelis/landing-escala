@@ -24,12 +24,6 @@ const FinalCTASection = lazy(() => import("../components/FinalCTASection"));
 const Footer = lazy(() => import("../components/Footer"));
 const ScrollToTopButton = lazy(() => import("../components/ScrollToTopButton"));
 
-const FallbackLoader = () => (
-  <div className="w-full h-32 flex items-center justify-center">
-    <div className="animate-pulse w-8 h-8 rounded-full bg-brand-primary"></div>
-  </div>
-);
-
 const Landing = () => {
   const seoMeta = getSeoMeta();
 
@@ -108,8 +102,8 @@ const Landing = () => {
         </header>
 
         <main>
-          <Suspense fallback={<FallbackLoader />}>
-            <HeroSection />
+          <HeroSection />
+          <Suspense fallback={null}>
             <ProblemSection />
             <InsightSection />
             <BenefitsSection />
@@ -120,7 +114,7 @@ const Landing = () => {
           </Suspense>
         </main>
 
-        <Suspense fallback={<FallbackLoader />}>
+        <Suspense fallback={null}>
           <Footer />
         </Suspense>
 
