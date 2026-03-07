@@ -58,7 +58,7 @@ const TestimonialsSection = () => {
     if (!isInView) return;
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
+    }, 20000); // 20 segundos de espera
     return () => clearInterval(interval);
   }, [isInView, testimonials.length]);
 
@@ -152,18 +152,20 @@ const TestimonialsSection = () => {
               const variants = {
                 center: { x: "0%", scale: 1, zIndex: 30, opacity: 1 },
                 left: {
-                  x: isMobile ? "0%" : "-55%",
-                  scale: isMobile ? 1 : 0.85,
+                  x: isMobile ? "0%" : "-65%",
+                  scale: isMobile ? 1 : 0.8,
                   zIndex: 10,
-                  opacity: isMobile ? 0 : 1,
+                  opacity: isMobile ? 0 : 0.5,
+                  rotateY: isMobile ? 0 : 15,
                 },
                 right: {
-                  x: isMobile ? "0%" : "55%",
-                  scale: isMobile ? 1 : 0.85,
+                  x: isMobile ? "0%" : "65%",
+                  scale: isMobile ? 1 : 0.8,
                   zIndex: 10,
-                  opacity: isMobile ? 0 : 1,
+                  opacity: isMobile ? 0 : 0.5,
+                  rotateY: isMobile ? 0 : -15,
                 },
-                hidden: { x: "0%", scale: 1, zIndex: 0, opacity: 0 },
+                hidden: { x: "0%", scale: 0.8, zIndex: 0, opacity: 0 },
               };
 
               const isActive = position === "center";
@@ -174,8 +176,11 @@ const TestimonialsSection = () => {
                   initial={false}
                   animate={position}
                   variants={variants}
-                  transition={{ duration: 8, ease: [0.25, 1, 0.5, 1] }}
-                  className={`col-start-1 row-start-1 w-full h-fit max-w-[340px] md:max-w-[520px] rounded-[30px] p-8 md:p-10 flex flex-col justify-center text-center cursor-pointer
+                  transition={{
+                    duration: 1.5,
+                    ease: "easeInOut",
+                  }}
+                  className={`col-start-1 row-start-1 w-full h-fit max-w-[340px] md:max-w-[520px] rounded-[30px] p-8 md:p-10 flex flex-col justify-center text-center cursor-pointer perspective-[1000px]
                     ${
                       isActive
                         ? "bg-gradient-to-br from-[#2F2522] to-[#17110F] shadow-[0_20px_60px_rgba(236,97,59,0.3)] border border-[#EC613B]/40"
@@ -183,6 +188,7 @@ const TestimonialsSection = () => {
                     }
                   `}
                   onClick={() => !isActive && setActiveIndex(index)}
+                  style={{ transformOrigin: "center center" }}
                 >
                   {isActive && (
                     <div className="absolute top-0 left-0 w-full h-[30%] bg-gradient-to-b from-[#EC613B]/20 to-transparent rounded-t-[30px] pointer-events-none" />
