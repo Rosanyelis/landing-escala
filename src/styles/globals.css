@@ -1,26 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @layer base {
   body {
     @apply font-sans antialiased text-gray-800 bg-white;
   }
-
   h1,
   h2,
   h3,
   h4 {
     @apply font-bebas font-normal tracking-wide text-gray-900 uppercase;
   }
-
   h5,
   h6 {
     @apply font-bold tracking-tight text-gray-900;
   }
-
   h1 {
     @apply text-[30px] md:text-[36px] lg:text-[48px];
   }
@@ -30,12 +25,10 @@
   h3 {
     @apply text-[24px];
   }
-
   p {
     @apply font-sans text-[16px] lg:text-[18px] text-gray-700 leading-relaxed;
   }
 }
-
 @layer utilities {
   .section-spacing {
     @apply py-12 md:py-16 lg:py-24;
@@ -44,26 +37,19 @@
     @apply mx-auto px-4 md:px-6 max-w-[1200px];
   }
 }
-
-/* Custom Scrollbar Styles */
 ::-webkit-scrollbar {
   width: 12px;
 }
-
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
-
 ::-webkit-scrollbar-thumb {
   background: #ec613b;
   border-radius: 6px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background: #d45431;
 }
-
-/* Firefox Support */
 html {
   scrollbar-width: thin;
   scrollbar-color: #ec613b #f1f1f1;
