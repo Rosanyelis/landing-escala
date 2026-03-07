@@ -220,6 +220,48 @@ const LeadForm = () => {
             />
           </div>
 
+          <div className="flex flex-col mt-2">
+            <div className="flex items-start">
+              <input
+                id="privacidad"
+                type="checkbox"
+                className="mt-1 w-4 h-4 text-[#EC613B] bg-white border-gray-300 rounded focus:ring-[#EC613B] cursor-pointer"
+                {...register("privacidad", {
+                  required: "Debes aceptar el aviso de privacidad y términos.",
+                })}
+              />
+              <label
+                htmlFor="privacidad"
+                className="ml-2 text-[13px] text-gray-600 font-sans leading-tight cursor-pointer select-none"
+              >
+                He leído y acepto el{" "}
+                <a
+                  href="https://consultoriaparaempresa.com/privacy-policy/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-[#EC613B] hover:underline transition-colors"
+                >
+                  Aviso de Privacidad
+                </a>{" "}
+                y los{" "}
+                <a
+                  href="https://consultoriaparaempresa.com/terms-conditions/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-[#EC613B] hover:underline transition-colors"
+                >
+                  Términos y Condiciones
+                </a>
+                .
+              </label>
+            </div>
+            {errors.privacidad && (
+              <p className="text-red-600 text-xs mt-1 ml-6">
+                {errors.privacidad.message}
+              </p>
+            )}
+          </div>
+
           <div className="pt-4">
             <button
               type="submit"

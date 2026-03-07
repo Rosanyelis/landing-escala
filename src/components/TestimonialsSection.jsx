@@ -258,6 +258,20 @@ const TestimonialsSection = () => {
             />
           ))}
         </div>
+
+        {/* Aviso de testimonios */}
+        <div className="mt-12 md:mt-16 max-w-[1000px] mx-auto text-center">
+          <p className="text-[11px] md:text-[13px] text-gray-900 leading-relaxed font-sans text-justify md:text-center px-2">
+            <strong className="text-black">Aviso sobre testimonios:</strong> Los
+            resultados mostrados en estos testimonios son experiencias
+            individuales de nuestros clientes y representan casos específicos de
+            éxito tras la implementación de nuestras metodologías. Sin embargo,
+            no garantizan que todos los usuarios obtendrán los mismos
+            resultados, ya que estos dependen del compromiso, el sector, el
+            tamaño de la empresa y la ejecución de las estrategias recomendadas.
+            Cada caso de negocio es único y se trata de manera personalizada.
+          </p>
+        </div>
       </Container>
     </Section>
   );
