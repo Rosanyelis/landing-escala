@@ -3,8 +3,8 @@ export const getOrganizationSchema = () => {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Escala",
-    url: "https://escala.uno",
-    logo: "https://escala.uno/logo.png",
+    url: "https://landing-scala.rossdigital.dev",
+    logo: "https://landing-scala.rossdigital.dev/logo.webp",
     contactPoint: [
       {
         "@type": "ContactPoint",

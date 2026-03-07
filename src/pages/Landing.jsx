@@ -9,7 +9,7 @@ import { getOrganizationSchema, getServiceSchema } from "../utils/schema";
 import logoImg from "../assets/img/logo.webp";
 
 // Dynamic Imports for Code Splitting
-const HeroSection = lazy(() => import("../components/HeroSection"));
+import HeroSection from "../components/HeroSection";
 const ProblemSection = lazy(() => import("../components/ProblemSection"));
 const InsightSection = lazy(() => import("../components/InsightSection"));
 const BenefitsSection = lazy(() => import("../components/BenefitsSection"));
