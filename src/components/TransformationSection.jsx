@@ -49,9 +49,9 @@ const TransformationSection = () => {
       icon: icon4,
     },
     {
-      title: "Cumplimiento de KPIS y resultados clave:",
+      title: "Tu cultura, de forma práctica y tangible en un manual vivo:",
       description:
-        "logra objetivos de manera consistente y predecible, cumple KPIs.",
+        "Un documento práctico que guíe desde la inducción hasta la toma de decisiones diarias, para que todos sepan cómo actuar y hacia dónde van.",
       imageSrc: card5,
       icon: icon5,
     },

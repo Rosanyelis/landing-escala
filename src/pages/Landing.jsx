@@ -22,6 +22,7 @@ const TestimonialsSection = lazy(
 const ClientsSection = lazy(() => import("../components/ClientsSection"));
 const FinalCTASection = lazy(() => import("../components/FinalCTASection"));
 const Footer = lazy(() => import("../components/Footer"));
+const ScrollToTopButton = lazy(() => import("../components/ScrollToTopButton"));
 
 const FallbackLoader = () => (
   <div className="w-full h-32 flex items-center justify-center">
@@ -119,19 +120,9 @@ const Landing = () => {
           <Footer />
         </Suspense>
 
-        {/* Mobile Sticky CTA */}
-        <div className="md:hidden fixed bottom-0 w-full bg-white border-t border-gray-200 p-4 z-50 pb-safe shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
-          <button
-            onClick={() =>
-              document
-                .getElementById("diagnostico-form")
-                ?.scrollIntoView({ behavior: "smooth" })
-            }
-            className="w-full bg-[#EC613B] text-white font-bold py-3 px-6 rounded-full text-center hover:bg-[#D45431] shadow-lg transition-transform active:scale-95 flex items-center justify-center gap-2"
-          >
-            SOLICITAR DIAGNÓSTICO
-          </button>
-        </div>
+        <Suspense fallback={null}>
+          <ScrollToTopButton />
+        </Suspense>
       </div>
     </HelmetProvider>
   );

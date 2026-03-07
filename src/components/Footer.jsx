@@ -1,26 +1,32 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Container from "../layout/Container";
 import logoImg from "../assets/img/logo.webp";
 
 const Footer = () => {
   const links = [
-    { name: "Método Escala", href: "#insight" },
-    { name: "Soluciones", href: "#transformations" },
-    { name: "Reclutamiento", href: "#benefits" },
-    { name: "Sobre Escala", href: "#authority" },
-    { name: "Testimoniales", href: "#testimonials" },
-    { name: "Preguntas Frecuentes", href: "#" },
+    { name: "Método Escala", href: "/#insight" },
+    { name: "Soluciones", href: "/#transformations" },
+    { name: "Reclutamiento", href: "/#benefits" },
+    { name: "Sobre Escala", href: "/#authority" },
+    { name: "Testimoniales", href: "/#testimonials" },
+    { name: "Preguntas Frecuentes", href: "/#" },
   ];
 
   const handleScroll = (e, href) => {
-    if (href !== "#") {
-      e.preventDefault();
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+    if (href.startsWith("/#") && href.length > 2) {
+      if (window.location.pathname === "/") {
+        e.preventDefault();
+        const element = document.querySelector(href.substring(1));
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
       }
-    } else {
-      e.preventDefault();
+    } else if (href === "/#") {
+      if (window.location.pathname === "/") {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
     }
   };
 
@@ -31,12 +37,13 @@ const Footer = () => {
           {/* Logo and Info */}
           <div className="flex flex-col">
             <div className="mb-14">
-              <img
-                src={logoImg}
-                alt="ESCALA Logo"
-                className="h-16 md:h-28 w-auto object-contain cursor-pointer"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              />
+              <Link to="/" onClick={() => window.scrollTo(0, 0)}>
+                <img
+                  src={logoImg}
+                  alt="ESCALA Logo"
+                  className="h-16 md:h-28 w-auto object-contain cursor-pointer"
+                />
+              </Link>
             </div>
 
             <div className="text-[14px] md:text-[15px] leading-relaxed mb-12">
@@ -142,21 +149,39 @@ const Footer = () => {
         </div>
 
         {/* Copyright and Legal */}
-        <div className="border-t border-gray-100/30 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 text-[13px] text-gray-400 max-w-[1100px] mx-auto">
-          <p className="text-white">© 2025 Escalamiento Empresarial</p>
-          <div className="flex space-x-6">
-            <a
-              href="#"
-              className="hover:text-[#EC613B] transition-colors text-white"
-            >
+        <div className="border-t border-gray-100/30 pt-8 flex flex-col gap-6 text-[13px] text-gray-400 max-w-[1100px] mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <p className="text-white">© 2026 Escalamiento Empresarial</p>
+            <div className="flex space-x-6">
+              <Link
+                to="/privacidad"
+                className="hover:text-[#EC613B] transition-colors text-white"
+              >
+                Aviso de Privacidad
+              </Link>
+              <Link
+                to="/terminos"
+                className="hover:text-[#EC613B] transition-colors text-white"
+              >
+                Términos y Condiciones
+              </Link>
+            </div>
+          </div>
+
+          <div className="text-[10px] md:text-[11px] leading-relaxed text-gray-400 text-justify mt-2">
+            Los servicios de consultoría, estrategia y capacitación
+            proporcionados por MÉTODO ESCALA NEGOCIOS S.A. DE C.V. están
+            orientados a la optimización de procesos y resultados corporativos.
+            Los resultados mencionados en este sitio web, así como en nuestras
+            comunicaciones, son ilustrativos y dependen estrictamente de la
+            implementación, el contexto de mercado y la gestión interna de cada
+            empresa. No garantizamos resultados específicos ni retornos de
+            inversión fijos, ya que el éxito empresarial es multifactorial. Toda
+            la información personal recolectada está protegida bajo nuestro{" "}
+            <Link to="/privacidad" className="text-[#EC613B] hover:underline">
               Aviso de Privacidad
-            </a>
-            <a
-              href="#"
-              className="hover:text-[#EC613B] transition-colors text-white"
-            >
-              Términos y Condiciones
-            </a>
+            </Link>
+            .
           </div>
         </div>
       </Container>
