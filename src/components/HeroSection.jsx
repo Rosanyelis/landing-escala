@@ -11,7 +11,10 @@ const HeroSection = () => {
     >
       <Container className="max-w-[1300px]">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 items-start lg:items-center">
-          <div className="md:col-span-7 lg:col-span-7 flex flex-col items-center text-center w-full">
+          <div
+            className="md:col-span-7 lg:col-span-7 flex flex-col items-center text-center w-full animate-fade-in-up opacity-0"
+            style={{ animationDelay: "100ms" }}
+          >
             {/* The h1 matches the exact typographical layout of the image */}
             <h1
               className="uppercase w-full select-none mb-6 md:mb-10 text-[24px] md:text-[34px] lg:text-[52px] font-black !leading-[1.1] tracking-[0.03em]"
@@ -51,8 +54,9 @@ const HeroSection = () => {
 
           {/* Form Column */}
           <div
-            className="md:col-span-5 lg:col-span-5 relative z-10 w-full max-w-[480px] mx-auto"
+            className="md:col-span-5 lg:col-span-5 relative z-10 w-full max-w-[480px] mx-auto animate-fade-in opacity-0"
             id="diagnostico-form"
+            style={{ animationDelay: "400ms" }}
           >
             <LeadForm />
           </div>
