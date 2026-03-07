@@ -53,6 +53,7 @@ const Landing = () => {
           <meta name="title" content={seoMeta.title} />
           <meta name="description" content={seoMeta.description} />
           <meta name="keywords" content={seoMeta.keywords} />
+          <link rel="canonical" href={seoMeta.url} />
 
           {/* Open Graph / Facebook */}
           <meta property="og:type" content="website" />
