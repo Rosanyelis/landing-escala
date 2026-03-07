@@ -5,12 +5,30 @@ import logoImg from "../assets/img/logo.webp";
 
 const Footer = () => {
   const links = [
-    { name: "Método Escala", href: "/#insight" },
-    { name: "Soluciones", href: "/#transformations" },
-    { name: "Reclutamiento", href: "/#benefits" },
-    { name: "Sobre Escala", href: "/#authority" },
-    { name: "Testimoniales", href: "/#testimonials" },
-    { name: "Preguntas Frecuentes", href: "/#" },
+    {
+      name: "Método Escala",
+      href: "https://consultoriaparaempresa.com/metodoescala/",
+    },
+    {
+      name: "Soluciones",
+      href: "https://consultoriaparaempresa.com/soluciones/",
+    },
+    {
+      name: "Reclutamiento",
+      href: "https://consultoriaparaempresa.com/reclutamiento-perfiles-ejecutivos/",
+    },
+    {
+      name: "Sobre Escala",
+      href: "https://consultoriaparaempresa.com/sobre-escala/",
+    },
+    {
+      name: "Testimoniales",
+      href: "https://consultoriaparaempresa.com/testimoniales/",
+    },
+    {
+      name: "Preguntas Frecuentes",
+      href: "https://consultoriaparaempresa.com/preguntas-frecuentes/",
+    },
   ];
 
   const handleScroll = (e, href) => {
@@ -36,31 +54,65 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-8 mb-20 max-w-[1100px] mx-auto">
           {/* Logo and Info */}
           <div className="flex flex-col">
-            <div className="mb-14">
+            <div className="mb-12">
               <Link to="/" onClick={() => window.scrollTo(0, 0)}>
                 <img
                   src={logoImg}
                   alt="ESCALA Logo"
-                  className="h-16 md:h-28 w-auto object-contain cursor-pointer"
+                  className="h-8 md:h-10 w-auto object-contain cursor-pointer"
                 />
               </Link>
             </div>
 
-            <div className="text-[14px] md:text-[15px] leading-relaxed mb-12">
-              <p className="text-white">
-                Avenida Presidente Masaryk 111, 1º, CDMX (México)
+            <div className="text-[13px] md:text-[14px] leading-relaxed mb-8 flex flex-col gap-3">
+              <p className="text-white font-bold text-[11px] md:text-[12px] tracking-wide">
+                MÉTODO ESCALA NEGOCIOS S.A. DE C.V.
               </p>
-              <p className="text-white">Calle Gran Vía Nº4, Madrid (España)</p>
+              <p className="text-white font-bold text-[11px] md:text-[12px] tracking-wide">
+                RFC: MEN220425748
+              </p>
+              <p className="text-white">
+                Av. Presidente Masaryk 111, 1er piso, Col. Polanco V Sección,
+                C.P. 11560, Ciudad de México, México.
+              </p>
             </div>
 
-            <div className="flex flex-col gap-4 mb-10 text-[18px] md:text-[20px] font-sans">
+            <div className="flex flex-col gap-4 mb-8 text-[14px] md:text-[15px] font-sans">
               <div className="flex items-center">
-                <div className="w-[18px] h-[18px] bg-[#EC613B] rounded-full mr-4 flex-shrink-0"></div>
-                <span className="text-white">+52 (55) 3797 5914</span>
+                <svg
+                  className="w-[18px] h-[18px] text-[#EC613B] mr-4 flex-shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  />
+                </svg>
+                <span className="text-white font-medium tracking-wide">
+                  +52 (55) 3797 5914
+                </span>
               </div>
               <div className="flex items-center">
-                <div className="w-[18px] h-[18px] bg-[#EC613B] rounded-full mr-4 flex-shrink-0"></div>
-                <span className="text-white">hola@escala.uno</span>
+                <svg
+                  className="w-[18px] h-[18px] text-[#EC613B] mr-4 flex-shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+                <span className="text-white font-medium tracking-wide">
+                  hola@consultoriaparaempresa.com
+                </span>
               </div>
             </div>
 
@@ -114,28 +166,18 @@ const Footer = () => {
           </div>
 
           {/* Links Column */}
-          <div className="flex flex-col justify-center lg:pl-16">
-            <ul className="space-y-4 md:space-y-5">
+          <div className="flex flex-col justify-start pt-4 md:pt-16 lg:pl-32">
+            <ul className="space-y-3 md:space-y-4">
               {links.map((link, index) => (
                 <li key={index}>
                   <a
                     href={link.href}
                     onClick={(e) => handleScroll(e, link.href)}
-                    className="flex items-center text-gray-200 hover:text-white transition-colors text-[15px] md:text-[16px]"
+                    className="flex items-center text-gray-200 hover:text-white transition-colors text-[14px] md:text-[15px]"
                   >
-                    <svg
-                      className="w-4 h-4 text-[#EC613B] mr-4 flex-shrink-0"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={3}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
+                    <span className="text-[#EC613B] font-bold mr-3 text-lg leading-none mt-[-2px]">
+                      &gt;
+                    </span>
                     {link.name}
                   </a>
                 </li>
@@ -149,22 +191,24 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <p className="text-white">© 2026 Escalamiento Empresarial</p>
             <div className="flex space-x-6">
-              <Link
-                to="/privacidad"
+              <a
+                target="_blank"
+                href="https://consultoriaparaempresa.com/privacy-policy/"
                 className="hover:text-[#EC613B] transition-colors text-white"
               >
                 Aviso de Privacidad
-              </Link>
-              <Link
-                to="/terminos"
+              </a>
+              <a
+                target="_blank"
+                href="https://consultoriaparaempresa.com/privacy-policy/"
                 className="hover:text-[#EC613B] transition-colors text-white"
               >
                 Términos y Condiciones
-              </Link>
+              </a>
             </div>
           </div>
 
-          <div className="text-[10px] md:text-[11px] leading-relaxed text-gray-400 text-justify mt-2">
+          <div className="text-[9px] md:text-[10px] leading-relaxed text-white text-justify mt-2">
             Los servicios de consultoría, estrategia y capacitación
             proporcionados por MÉTODO ESCALA NEGOCIOS S.A. DE C.V. están
             orientados a la optimización de procesos y resultados corporativos.
@@ -174,9 +218,13 @@ const Footer = () => {
             empresa. No garantizamos resultados específicos ni retornos de
             inversión fijos, ya que el éxito empresarial es multifactorial. Toda
             la información personal recolectada está protegida bajo nuestro{" "}
-            <Link to="/privacidad" className="text-[#EC613B] hover:underline">
+            <a
+              target="_blank"
+              href="https://consultoriaparaempresa.com/privacy-policy/"
+              className="text-[#EC613B] hover:underline"
+            >
               Aviso de Privacidad
-            </Link>
+            </a>
             .
           </div>
         </div>
