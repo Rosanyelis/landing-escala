@@ -22,7 +22,7 @@ const HeroSection = () => {
             {/* The h1 matches the exact typographical layout of the image */}
             <h1
               className="uppercase w-full select-none mb-6 md:mb-10 text-[24px] md:text-[34px] lg:text-[52px] font-black !leading-[1.1] tracking-[0.03em]"
-              style={{ textShadow: "4px 4px 0px #D1D5DB" }}
+              style={{ textShadow: "2px 2px 0px #D1D5DB" }}
             >
               <span className="block text-gray-900">
                 Instalamos una cultura que crea

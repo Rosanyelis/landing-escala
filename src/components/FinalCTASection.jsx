@@ -165,8 +165,7 @@ const FinalCTASection = () => {
               La <span className="font-bold">cultura</span> es la base para{" "}
               <span className="font-bold">crecer</span> de manera{" "}
               <span className="text-[#EC613B] font-bold">sostenible</span>{" "}
-              cumpliendo
-              <br className="hidden md:block" />
+              cumpliendo <br className="hidden md:block" />
               KPIS <span className="font-bold">sin perder</span> el{" "}
               <span className="text-[#EC613B] font-bold">control</span> ni la{" "}
               <span className="text-[#EC613B] font-bold">esencia</span>.

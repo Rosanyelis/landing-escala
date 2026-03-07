@@ -200,7 +200,7 @@ const Footer = () => {
               </a>
               <a
                 target="_blank"
-                href="https://consultoriaparaempresa.com/privacy-policy/"
+                href="https://consultoriaparaempresa.com/terms-conditions/"
                 className="hover:text-[#EC613B] transition-colors text-white"
               >
                 Términos y Condiciones
