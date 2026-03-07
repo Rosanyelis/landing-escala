@@ -4,7 +4,7 @@ export const getSeoMeta = () => {
     description:
       "Instalamos una cultura que crea líderes autónomos, equipos con ownership real y cumplimiento de KPIs. Especialistas en metodologías para PYMES.",
     keywords:
-      "organizational culture consulting, leadership consulting, high performance teams, business scaling consulting, KPI consulting, organizational transformation, leadership systems for companies, pymer",
+      "consultoria de procesos, estandarizacion de procesos, consultoria empresas, empresa consultora, gestion de procesos, sistematizacion de negocios, sistematizacion de procesos, consultoras de procesos, consultor de procesos, implementacion de procesos, consultoria empresarial, consultoria proceso, asesoramiento en estructuras organizacionales, empresas consultora, asesoria procesos, servicios consultoria, consultoria en procesos, reingeniería organizacional, procesos empresariales, estructura empresa, consultoría de procesos desarrollo organizacional, reingenieria de procesos",
     url: "https://landing-scala.rossdigital.dev",
     image: "https://landing-scala.rossdigital.dev/logo.webp",
   };
