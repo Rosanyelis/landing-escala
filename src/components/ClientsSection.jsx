@@ -1,5 +1,11 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useRef } from "react";
+import {
+  motion,
+  useMotionValue,
+  useTransform,
+  animate,
+  useInView,
+} from "framer-motion";
 import Container from "../layout/Container";
 import Section from "../layout/Section";
 
@@ -29,6 +35,21 @@ import client12 from "../assets/img/clientes/cliente-12.webp";
 import client13 from "../assets/img/clientes/cliente-13.webp";
 import client14 from "../assets/img/clientes/cliente-14.webp";
 import client15 from "../assets/img/clientes/cliente-15.webp";
+
+const AnimatedNumber = ({ value }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, (latest) => Math.round(latest));
+
+  useEffect(() => {
+    if (isInView) {
+      animate(count, value, { duration: 2.5, ease: "easeOut" });
+    }
+  }, [count, value, isInView]);
+
+  return <motion.span ref={ref}>{rounded}</motion.span>;
+};
 
 const ClientsSection = () => {
   const sectors = [
@@ -83,7 +104,7 @@ const ClientsSection = () => {
             <div className="flex flex-row justify-center items-center gap-16 md:gap-36">
               <div className="text-center">
                 <p className="text-[#EC613B] text-[70px] md:text-[110px] lg:text-[140px] font-bebas leading-[0.8] tracking-tight">
-                  +60
+                  +<AnimatedNumber value={60} />
                 </p>
                 <p className="text-black font-bold text-[18px] md:text-[22px] mt-3 md:mt-5 capitalize tracking-wide font-sans">
                   Sectores
@@ -91,7 +112,7 @@ const ClientsSection = () => {
               </div>
               <div className="text-center">
                 <p className="text-[#EC613B] text-[70px] md:text-[110px] lg:text-[140px] font-bebas leading-[0.8] tracking-tight">
-                  +300
+                  +<AnimatedNumber value={300} />
                 </p>
                 <p className="text-black font-bold text-[18px] md:text-[22px] mt-3 md:mt-5 capitalize tracking-wide font-sans">
                   Empresas
