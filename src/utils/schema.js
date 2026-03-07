@@ -15,9 +15,9 @@ export const getOrganizationSchema = () => {
       },
     ],
     sameAs: [
-      "https://www.facebook.com/escala",
-      "https://www.instagram.com/escala",
-      "https://www.linkedin.com/company/escala",
+      "https://www.facebook.com/metodoescalauno",
+      "https://www.instagram.com/escala.uno/",
+      "https://wa.me/+525537975914",
     ],
   };
 };

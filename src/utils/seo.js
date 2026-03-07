@@ -6,6 +6,6 @@ export const getSeoMeta = () => {
     keywords:
       "organizational culture consulting, leadership consulting, high performance teams, business scaling consulting, KPI consulting, organizational transformation, leadership systems for companies, pymer",
     url: "https://escala.uno",
-    image: "https://escala.uno/og-image.jpg", // Placeholder for real image
+    image: "https://escala.uno/og-image.jpg",
   };
 };
