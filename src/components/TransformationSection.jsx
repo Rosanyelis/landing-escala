@@ -104,6 +104,9 @@ const TransformationSection = () => {
                   src={item.imageSrc}
                   alt={item.title}
                   className="w-full h-full object-cover rounded-t-[24px]"
+                  width="400"
+                  height="200"
+                  loading="lazy"
                 />
 
                 {/* Overlay Icon visible half on the image and half out */}
@@ -113,6 +116,7 @@ const TransformationSection = () => {
                     alt="icon card "
                     width={50}
                     height={50}
+                    loading="lazy"
                   />
                 </div>
               </div>

@@ -149,6 +149,9 @@ const ClientsSection = () => {
                         src={sector.icon}
                         alt={`Icono ${sector.name}`}
                         className="w-[32px] h-[32px] md:w-[36px] md:h-[36px] object-contain"
+                        width="36"
+                        height="36"
+                        loading="lazy"
                       />
                     )}
                     <span className="font-bold text-[14px] md:text-[16px] font-sans">
@@ -180,6 +183,9 @@ const ClientsSection = () => {
                     src={logoSource}
                     alt={`Cliente ${index + 1}`}
                     className="w-full h-full object-contain rounded-full"
+                    width="115"
+                    height="115"
+                    loading="lazy"
                   />
                 </div>
               ))}

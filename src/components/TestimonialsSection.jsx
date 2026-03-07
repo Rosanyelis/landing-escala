@@ -120,6 +120,7 @@ const TestimonialsSection = () => {
           {/* Navigation Prev */}
           <button
             onClick={prevTestimonial}
+            aria-label="Testimonio anterior"
             className="hidden md:flex absolute -left-6 lg:-left-12 z-40 w-14 h-14 bg-brand-primary rounded-full items-center justify-center text-white shadow-[0_5px_15px_rgba(236,97,59,0.4)] hover:scale-105 transition-transform"
           >
             <svg
@@ -225,6 +226,7 @@ const TestimonialsSection = () => {
           {/* Navigation Next */}
           <button
             onClick={nextTestimonial}
+            aria-label="Siguiente testimonio"
             className="hidden md:flex absolute -right-6 lg:-right-12 z-40 w-14 h-14 bg-brand-primary rounded-full items-center justify-center text-white shadow-[0_5px_15px_rgba(236,97,59,0.4)] hover:scale-105 transition-transform"
           >
             <svg

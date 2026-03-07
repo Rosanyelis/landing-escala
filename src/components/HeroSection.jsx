@@ -45,12 +45,13 @@ const HeroSection = () => {
               <img
                 src={heroImg}
                 alt="Cultura Organizacional Escala"
-                className="w-full max-w-[650px] h-auto object-contain rounded-[40px] md:rounded-[60px]"
+                className="w-full max-w-[650px] h-auto object-cover rounded-[40px] md:rounded-[60px]"
                 style={{
                   filter: "drop-shadow(0px 10px 20px rgba(0,0,0,0.08))",
+                  aspectRatio: "1/1",
                 }}
-                fetchpriority="high"
                 loading="eager"
+                width="650"
               />
             </div>
           </motion.div>

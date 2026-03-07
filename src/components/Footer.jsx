@@ -49,7 +49,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-black text-white pt-20 pb-28 md:pb-10">
+    <footer className="bg-black text-white pt-20 pb-28 md:pb-10 min-h-[600px] md:min-h-[350px]">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-8 mb-20 max-w-[1100px] mx-auto">
           {/* Logo and Info */}
@@ -60,6 +60,10 @@ const Footer = () => {
                   src={logoImg}
                   alt="ESCALA Logo"
                   className="h-8 md:h-10 w-auto object-contain cursor-pointer"
+                  style={{ aspectRatio: "180/40" }}
+                  width="180"
+                  height="40"
+                  loading="lazy"
                 />
               </Link>
             </div>

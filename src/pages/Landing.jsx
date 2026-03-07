@@ -86,6 +86,9 @@ const Landing = () => {
                 src={logoImg}
                 alt="ESCALA Logo"
                 className="h-14 md:h-30 w-auto object-contain cursor-pointer"
+                style={{ aspectRatio: "180/56" }}
+                width="180"
+                height="56"
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               />
             </div>

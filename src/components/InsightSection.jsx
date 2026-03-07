@@ -85,6 +85,9 @@ const InsightSection = () => {
                     src={reglasImg}
                     alt="Icono Reglas"
                     className="w-[54px] h-[54px] object-contain"
+                    width="54"
+                    height="54"
+                    loading="lazy"
                   />
                 </div>
                 <span className="uppercase font-bold text-[#EC613B] tracking-tighter text-[28px]">
@@ -99,6 +102,9 @@ const InsightSection = () => {
                     src={metricas}
                     alt="Icono Reglas"
                     className="w-[54px] h-[54px] object-contain"
+                    width="54"
+                    height="54"
+                    loading="lazy"
                   />
                 </div>
                 <span className="uppercase font-bold text-[#EC613B] tracking-tighter text-[28px]">
@@ -113,6 +119,9 @@ const InsightSection = () => {
                     src={estructura}
                     alt="Icono Reglas"
                     className="w-[54px] h-[54px] object-contain"
+                    width="54"
+                    height="54"
+                    loading="lazy"
                   />
                 </div>
                 <span className="uppercase font-bold text-[#EC613B] tracking-tighter text-[28px]">
