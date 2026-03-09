@@ -101,7 +101,8 @@ const Landing = () => {
           </div>
         </header>
 
-        <main>
+        {/* min-height reserva espacio y reduce CLS cuando cargan las secciones lazy */}
+        <main className="min-h-[3200px]">
           <HeroSection />
           <Suspense fallback={null}>
             <ProblemSection />

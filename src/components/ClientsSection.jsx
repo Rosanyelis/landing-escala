@@ -1,13 +1,7 @@
-import React, { useEffect, useRef } from "react";
-import {
-  motion,
-  useMotionValue,
-  useTransform,
-  animate,
-  useInView,
-} from "framer-motion";
+import React, { useEffect, useState } from "react";
 import Container from "../layout/Container";
 import Section from "../layout/Section";
+import { useInView } from "../hooks/useInView";
 
 import tecnologia from "../assets/img/sectores/tecnologia.webp";
 import consultoria from "../assets/img/sectores/consultoria.webp";
@@ -37,18 +31,24 @@ import client14 from "../assets/img/clientes/cliente-14.webp";
 import client15 from "../assets/img/clientes/cliente-15.webp";
 
 const AnimatedNumber = ({ value }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const count = useMotionValue(0);
-  const rounded = useTransform(count, (latest) => Math.round(latest));
+  const [ref, inView] = useInView({ once: true, margin: "-100px" });
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    if (isInView) {
-      animate(count, value, { duration: 2.5, ease: "easeOut" });
-    }
-  }, [count, value, isInView]);
+    if (!inView) return;
+    const duration = 2500;
+    const start = performance.now();
+    const step = (now) => {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - (1 - progress) ** 2;
+      setCount(Math.round(value * eased));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, [inView, value]);
 
-  return <motion.span ref={ref}>{rounded}</motion.span>;
+  return <span ref={ref}>{count}</span>;
 };
 
 const ClientsSection = () => {
@@ -82,6 +82,10 @@ const ClientsSection = () => {
     client15,
   ];
 
+  const [refStats, inViewStats] = useInView({ amount: 0.2 });
+  const [refSectors, inViewSectors] = useInView({ amount: 0.2 });
+  const [refClients, inViewClients] = useInView({ amount: 0 });
+
   return (
     <>
       <Section
@@ -90,12 +94,9 @@ const ClientsSection = () => {
         className="py-16 md:py-16 text-center"
       >
         <Container>
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
-            className="mb-5 md:mb-5"
+          <div
+            ref={refStats}
+            className={`mb-5 md:mb-5 scroll-reveal ${inViewStats ? "in-view" : ""}`}
           >
             <h2 className="uppercase font-bebas text-black leading-none mb-10 md:mb-16 text-center text-[40px] md:text-[56px] lg:text-[68px] tracking-[0.02em]">
               NUESTRA EXPERIENCIA HABLA POR NOSOTROS
@@ -119,18 +120,15 @@ const ClientsSection = () => {
                 </p>
               </div>
             </div>
-          </motion.div>
+          </div>
         </Container>
       </Section>
 
       <Section className="pb-8 pt-8 md:pb-8">
         <Container>
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
-            className="max-w-[1100px] mx-auto mb-20 relative text-center"
+          <div
+            ref={refSectors}
+            className={`max-w-[1100px] mx-auto mb-20 relative text-center scroll-reveal ${inViewSectors ? "in-view" : ""}`}
           >
             <h3 className="uppercase font-bebas text-black text-[32px] md:text-[44px] lg:text-[48px] mb-8 md:mb-12 tracking-wide leading-none">
               HEMOS TRABAJADO CON EMPRESAS EN SECTORES COMO:
@@ -161,13 +159,12 @@ const ClientsSection = () => {
                 ))}
               </div>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+          <div
+            ref={refClients}
+            className={`scroll-reveal ${inViewClients ? "in-view" : ""}`}
+            style={{ transitionDelay: "0.2s" }}
           >
             <h3 className="uppercase font-bold text-brand-primary text-[40px] mb-12 text-center">
               ALGUNOS DE NUESTROS CLIENTES:
@@ -190,7 +187,7 @@ const ClientsSection = () => {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </Container>
       </Section>
     </>

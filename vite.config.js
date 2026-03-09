@@ -50,7 +50,6 @@ export default defineConfig(({ mode }) => ({
       output: {
         manualChunks: {
           "vendor-react": ["react", "react-dom", "react-helmet-async"],
-          "vendor-motion": ["framer-motion"],
           "vendor-forms": ["react-hook-form"],
         },
         entryFileNames: "assets/[name]-[hash].js",
@@ -77,6 +76,6 @@ export default defineConfig(({ mode }) => ({
   },
 
   optimizeDeps: {
-    include: ["react", "react-dom", "framer-motion"],
+    include: ["react", "react-dom"],
   },
 }));

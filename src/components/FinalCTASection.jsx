@@ -1,10 +1,15 @@
 import React from "react";
-import { motion } from "framer-motion";
 import Container from "../layout/Container";
 import Section from "../layout/Section";
 import LeadForm from "./LeadForm";
+import { useInView } from "../hooks/useInView";
 
 const FinalCTASection = () => {
+  const [refTitle, inViewTitle] = useInView({ amount: 0.2 });
+  const [refLeft, inViewLeft] = useInView({ amount: 0.2 });
+  const [refRight, inViewRight] = useInView({ amount: 0.2 });
+  const [refBottom, inViewBottom] = useInView({ amount: 0 });
+
   return (
     <>
       <Section
@@ -12,12 +17,9 @@ const FinalCTASection = () => {
         className="bg-white py-16 md:py-24 relative overflow-hidden"
       >
         <Container>
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
-            className="text-center mb-16"
+          <div
+            ref={refTitle}
+            className={`text-center mb-16 scroll-reveal ${inViewTitle ? "in-view" : ""}`}
           >
             <h2 className="uppercase font-bold text-gray-900 leading-tight">
               <span className="text-[28px] md:text-[36px]">
@@ -26,19 +28,13 @@ const FinalCTASection = () => {
                 <span className="text-brand-primary">ESCALAR</span>:
               </span>
             </h2>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 max-w-[1100px] mx-auto items-start">
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{
-                duration: 1.2,
-                delay: 0.2,
-                ease: [0.25, 1, 0.5, 1],
-              }}
-              className="lg:col-span-5 flex flex-col items-start bg-[#2B2B2B] rounded-[30px] p-8 md:p-10 lg:p-12 shadow-[12px_12px_0px_#EC613B] text-white relative overflow-hidden h-fit"
+            <div
+              ref={refLeft}
+              className={`lg:col-span-5 flex flex-col items-start bg-[#2B2B2B] rounded-[30px] p-8 md:p-10 lg:p-12 shadow-[12px_12px_0px_#EC613B] text-white relative overflow-hidden h-fit scroll-reveal-x-left ${inViewLeft ? "in-view" : ""}`}
+              style={{ transitionDelay: "0.2s" }}
             >
               {/* Background design */}
               <div className="absolute -top-16 -right-16 w-64 h-64 bg-[#EC613B]/30 blur-[70px] rounded-full pointer-events-none" />
@@ -127,33 +123,25 @@ const FinalCTASection = () => {
                   </li>
                 </ul>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{
-                duration: 1.2,
-                delay: 0.4,
-                ease: [0.25, 1, 0.5, 1],
-              }}
-              className="lg:col-span-7 relative z-10"
+            <div
+              ref={refRight}
+              className={`lg:col-span-7 relative z-10 scroll-reveal-x-right ${inViewRight ? "in-view" : ""}`}
+              style={{ transitionDelay: "0.4s" }}
             >
               <LeadForm />
-            </motion.div>
+            </div>
           </div>
         </Container>
       </Section>
 
       <Section bgClass="bg-[#F4F4F4]" className="py-8 md:py-8 text-center">
         <Container>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-[1000px] mx-auto"
+          <div
+            ref={refBottom}
+            className={`max-w-[1000px] mx-auto scroll-reveal ${inViewBottom ? "in-view" : ""}`}
+            style={{ transitionDelay: "0.2s" }}
           >
             <h2 className="uppercase font-bebas text-black leading-none mb-6">
               <span className="text-[40px] md:text-[56px] lg:text-[68px] tracking-[0.02em]">
@@ -170,7 +158,7 @@ const FinalCTASection = () => {
               <span className="text-[#EC613B] font-bold">control</span> ni la{" "}
               <span className="text-[#EC613B] font-bold">esencia</span>.
             </p>
-          </motion.div>
+          </div>
         </Container>
       </Section>
     </>

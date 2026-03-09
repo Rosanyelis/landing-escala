@@ -1,7 +1,7 @@
 import React from "react";
-import { motion } from "framer-motion";
 import Container from "../layout/Container";
 import Section from "../layout/Section";
+import { useInView } from "../hooks/useInView";
 
 // Import your physical images here so Vite bundles them properly:
 import card1 from "../assets/img/card-1.webp";
@@ -65,35 +65,29 @@ const TransformationSection = () => {
     },
   ];
 
+  const [refTitle, inViewTitle] = useInView({ amount: 0.2 });
+  const [refGrid, inViewGrid] = useInView({ amount: 0.1 });
+
   return (
     <Section id="transformations" className="bg-white py-10 md:py-10">
       <Container className="max-w-[1250px]">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
-          className="text-center mb-16 md:mb-20"
+        <div
+          ref={refTitle}
+          className={`text-center mb-16 md:mb-20 scroll-reveal ${inViewTitle ? "in-view" : ""}`}
         >
           <h2 className="uppercase font-black text-[#111] !leading-[1.1] tracking-[0.2rem] text-[28px] md:text-[36px] lg:text-[46px] max-w-[1000px] mx-auto">
             LO QUE <span className="text-[#EC613B]">LOGRAREMOS</span> JUNTOS EN
             TU <span className="text-[#EC613B]">EMPRESA:</span>
           </h2>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12 max-w-[1150px] mx-auto">
           {transformations.map((item, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.1 }}
-              transition={{
-                duration: 1.2,
-                delay: index * 0.15,
-                ease: [0.25, 1, 0.5, 1],
-              }}
-              className="bg-[#F8F9FA] rounded-[24px] shadow-[0_12px_35px_rgba(0,0,0,0.12)] hover:shadow-[0_15px_40px_rgba(236,97,59,0.18)] transition-all duration-300 flex flex-col h-full border border-[#E5E7EB]"
+              ref={index === 0 ? refGrid : undefined}
+              className={`bg-[#F8F9FA] rounded-[24px] shadow-[0_12px_35px_rgba(0,0,0,0.12)] hover:shadow-[0_15px_40px_rgba(236,97,59,0.18)] transition-all duration-300 flex flex-col h-full border border-[#E5E7EB] scroll-reveal ${inViewGrid ? "in-view" : ""}`}
+              style={{ transitionDelay: `${index * 0.15}s` }}
             >
               <div className="relative w-full h-[180px] lg:h-[200px]">
                 {/* 
@@ -107,6 +101,7 @@ const TransformationSection = () => {
                   width="400"
                   height="200"
                   loading="lazy"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
 
                 {/* Overlay Icon visible half on the image and half out */}
@@ -128,7 +123,7 @@ const TransformationSection = () => {
                   {item.description}
                 </p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </Container>

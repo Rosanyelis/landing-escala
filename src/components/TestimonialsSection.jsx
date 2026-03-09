@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
-import { motion, useInView } from "framer-motion";
 import Container from "../layout/Container";
 import Section from "../layout/Section";
+import { useInView } from "../hooks/useInView";
 
 const TestimonialsSection = () => {
   const testimonials = [
@@ -41,8 +41,7 @@ const TestimonialsSection = () => {
     },
   ];
 
-  const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const [sectionRef, isInView] = useInView({ once: true, margin: "-100px" });
 
   const [activeIndex, setActiveIndex] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
@@ -78,13 +77,9 @@ const TestimonialsSection = () => {
       className="bg-white py-0 md:py-16 text-center overflow-hidden"
     >
       <Container>
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
-          className="text-center mb-8"
+        <div
           ref={sectionRef}
+          className={`text-center mb-8 scroll-reveal ${isInView ? "in-view" : ""}`}
         >
           <div className="flex justify-left items-left gap-4 mb-4">
             <span className="text-brand-primary text-4xl font-serif">
@@ -114,7 +109,7 @@ const TestimonialsSection = () => {
               </span>
             </h2>
           </div>
-        </motion.div>
+        </div>
 
         <div className="relative max-w-[1100px] mx-auto flex items-center justify-center">
           {/* Navigation Prev */}
@@ -150,38 +145,39 @@ const TestimonialsSection = () => {
               else if (index === (activeIndex + 1) % testimonials.length)
                 position = "right";
 
-              const variants = {
-                center: { x: "0%", scale: 1, zIndex: 30, opacity: 1 },
-                left: {
-                  x: isMobile ? "0%" : "-65%",
-                  scale: isMobile ? 1 : 0.8,
-                  zIndex: 10,
-                  opacity: isMobile ? 0 : 0.5,
-                  rotateY: isMobile ? 0 : 15,
-                },
-                right: {
-                  x: isMobile ? "0%" : "65%",
-                  scale: isMobile ? 1 : 0.8,
-                  zIndex: 10,
-                  opacity: isMobile ? 0 : 0.5,
-                  rotateY: isMobile ? 0 : -15,
-                },
-                hidden: { x: "0%", scale: 0.8, zIndex: 0, opacity: 0 },
-              };
-
               const isActive = position === "center";
 
+              const positionStyles = {
+                center: {
+                  transform: "translateX(0) scale(1)",
+                  zIndex: 30,
+                  opacity: 1,
+                },
+                left: {
+                  transform: isMobile
+                    ? "translateX(0) scale(1)"
+                    : "translateX(-65%) scale(0.8)",
+                  zIndex: 10,
+                  opacity: isMobile ? 0 : 0.5,
+                },
+                right: {
+                  transform: isMobile
+                    ? "translateX(0) scale(1)"
+                    : "translateX(65%) scale(0.8)",
+                  zIndex: 10,
+                  opacity: isMobile ? 0 : 0.5,
+                },
+                hidden: {
+                  transform: "scale(0.8)",
+                  zIndex: 0,
+                  opacity: 0,
+                },
+              };
+
               return (
-                <motion.div
+                <div
                   key={item.id}
-                  initial={false}
-                  animate={position}
-                  variants={variants}
-                  transition={{
-                    duration: 1.5,
-                    ease: "easeInOut",
-                  }}
-                  className={`col-start-1 row-start-1 w-full h-fit max-w-[340px] md:max-w-[520px] rounded-[30px] p-8 md:p-10 flex flex-col justify-center text-center cursor-pointer perspective-[1000px]
+                  className={`col-start-1 row-start-1 w-full h-fit max-w-[340px] md:max-w-[520px] rounded-[30px] p-8 md:p-10 flex flex-col justify-center text-center cursor-pointer transition-all duration-[1500ms] ease-in-out
                     ${
                       isActive
                         ? "bg-gradient-to-br from-[#2F2522] to-[#17110F] shadow-[0_20px_60px_rgba(236,97,59,0.3)] border border-[#EC613B]/40"
@@ -189,7 +185,10 @@ const TestimonialsSection = () => {
                     }
                   `}
                   onClick={() => !isActive && setActiveIndex(index)}
-                  style={{ transformOrigin: "center center" }}
+                  style={{
+                    ...positionStyles[position],
+                    transformOrigin: "center center",
+                  }}
                 >
                   {isActive && (
                     <div className="absolute top-0 left-0 w-full h-[30%] bg-gradient-to-b from-[#EC613B]/20 to-transparent rounded-t-[30px] pointer-events-none" />
@@ -218,7 +217,7 @@ const TestimonialsSection = () => {
                       "{item.results}"
                     </p>
                   </div>
-                </motion.div>
+                </div>
               );
             })}
           </div>

@@ -2,8 +2,9 @@ import React from "react";
 import Container from "../layout/Container";
 import LeadForm from "./LeadForm";
 
-// Imagen servida desde public/ para habilitar preload en index.html
-const heroImg = "/hero.webp";
+// Imágenes hero desde public/ (preload en index.html por viewport)
+const heroMobile = "/hero-mobile.webp";
+const heroDesktop = "/hero.webp";
 
 const HeroSection = () => {
   return (
@@ -31,22 +32,35 @@ const HeroSection = () => {
             className="md:col-span-7 lg:col-span-7 flex flex-col items-center text-center w-full animate-fade-in-up opacity-0"
             style={{ animationDelay: "100ms" }}
           >
-            {/* Hero Image */}
+            {/* Hero Image: móvil = versión ligera, escritorio = completa (mejor LCP) */}
             <div className="w-full flex justify-center">
-              <img
-                src={heroImg}
-                alt="Cultura Organizacional Escala"
-                className="w-full max-w-[650px] h-auto object-cover rounded-[40px] md:rounded-[60px]"
-                style={{
-                  filter: "drop-shadow(0px 10px 20px rgba(0,0,0,0.08))",
-                  aspectRatio: "1/1",
-                }}
-                loading="eager"
-                fetchpriority="high"
-                decoding="async"
-                width="650"
-                height="650"
-              />
+              <picture>
+                <source
+                  media="(max-width: 768px)"
+                  srcSet={heroMobile}
+                  type="image/webp"
+                />
+                <source
+                  media="(min-width: 769px)"
+                  srcSet={heroDesktop}
+                  type="image/webp"
+                />
+                <img
+                  src={heroDesktop}
+                  alt="Cultura Organizacional Escala"
+                  className="w-full max-w-[650px] h-auto object-cover rounded-[40px] md:rounded-[60px]"
+                  style={{
+                    filter: "drop-shadow(0px 10px 20px rgba(0,0,0,0.08))",
+                    aspectRatio: "1/1",
+                  }}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                  width="650"
+                  height="650"
+                  sizes="(max-width: 768px) 100vw, 650px"
+                />
+              </picture>
             </div>
           </div>
 

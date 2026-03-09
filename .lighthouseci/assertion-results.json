@@ -1,1 +1,35 @@
-[]
+[
+  {
+    "name": "minScore",
+    "expected": 0.9,
+    "actual": 0.89,
+    "values": [
+      0.83,
+      0.89,
+      0.85
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditProperty": "performance",
+    "auditId": "categories",
+    "level": "error",
+    "url": "http://localhost:4173/"
+  },
+  {
+    "name": "maxNumericValue",
+    "expected": 0.1,
+    "actual": 0.204658867065119,
+    "values": [
+      0.20809125024291059,
+      0.204658867065119,
+      0.204658867065119
+    ],
+    "operator": "<=",
+    "passed": false,
+    "auditId": "cumulative-layout-shift",
+    "level": "error",
+    "url": "http://localhost:4173/",
+    "auditTitle": "Cumulative Layout Shift",
+    "auditDocumentationLink": "https://web.dev/articles/cls"
+  }
+]

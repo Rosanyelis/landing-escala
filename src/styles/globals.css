@@ -32,6 +32,37 @@
   .container-custom {
     @apply mx-auto px-4 md:px-6 max-w-[1200px];
   }
+  /* Reveal al hacer scroll (sustituye Framer Motion para reducir JS) */
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1),
+      transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  .scroll-reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .scroll-reveal-x-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1),
+      transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  .scroll-reveal-x-left.in-view {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .scroll-reveal-x-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1),
+      transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  .scroll-reveal-x-right.in-view {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 ::-webkit-scrollbar {
   width: 12px;

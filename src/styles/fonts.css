@@ -1,0 +1,32 @@
+/**
+ * Fuentes estáticas desde src/assets/fonts.
+ * Bebas Neue (títulos) y Montserrat (cuerpo) — sin dependencia de Google Fonts.
+ */
+
+/* Bebas Neue - solo peso 400 (regular); size-adjust reduce CLS al cargar la fuente */
+@font-face {
+  font-family: "Bebas Neue";
+  src: url("../assets/fonts/bebas-neue/BebasNeue-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Montserrat - variable (todos los pesos); size-adjust reduce CLS al cargar */
+@font-face {
+  font-family: "Montserrat";
+  src: url("../assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../assets/fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}

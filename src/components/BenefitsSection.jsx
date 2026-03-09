@@ -1,9 +1,12 @@
 import React from "react";
-import { motion } from "framer-motion";
 import Container from "../layout/Container";
 import Section from "../layout/Section";
+import { useInView } from "../hooks/useInView";
 
 const BenefitsSection = () => {
+  const [refTitle, inViewTitle] = useInView({ amount: 0.2 });
+  const [refGrid, inViewGrid] = useInView({ margin: "-100px" });
+
   const benefits = [
     {
       title: "AUTONOMÍA Y ALTO RENDIMIENTO DE EQUIPO",
@@ -27,35 +30,12 @@ const BenefitsSection = () => {
     },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 1.2, ease: [0.25, 1, 0.5, 1] },
-    },
-  };
-
   return (
     <Section id="benefits" className="bg-white py-0 md:py-0 text-center">
       <Container className="max-w-[1250px]">
-        {/* Title Block */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
-          className="max-w-[1050px] mx-auto mb-16 md:mb-20"
+        <div
+          ref={refTitle}
+          className={`max-w-[1050px] mx-auto mb-16 md:mb-20 scroll-reveal ${inViewTitle ? "in-view" : ""}`}
         >
           <h2 className="uppercase font-bold text-[#111] !leading-[1.15] tracking-[0.2rem] mb-8 md:mb-10 block">
             <span className="block text-[24px] md:text-[36px] lg:text-[46px] mb-1 ">
@@ -71,21 +51,17 @@ const BenefitsSection = () => {
             Ayudamos a empresas como la tuya a desarrollar una cultura
             organizacional que impulse:
           </p>
-        </motion.div>
+        </div>
 
-        {/* Benefits Grid */}
-        <motion.div
+        <div
+          ref={refGrid}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-5 gap-y-12 max-w-[1150px] mx-auto px-2 mt-10 md:mt-16"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
         >
           {benefits.map((benefit, index) => (
-            <motion.div
+            <div
               key={index}
-              variants={itemVariants}
-              className="bg-[#F4F6F8] rounded-[16px] px-5 pb-8 pt-10 border border-[#E2E6EA] shadow-[6px_8px_15px_rgba(0,0,0,0.06)] hover:shadow-[6px_10px_20px_rgba(236,97,59,0.15)] transition-all duration-300 relative flex flex-col items-center justify-start h-full"
+              className={`bg-[#F4F6F8] rounded-[16px] px-5 pb-8 pt-10 border border-[#E2E6EA] shadow-[6px_8px_15px_rgba(0,0,0,0.06)] hover:shadow-[6px_10px_20px_rgba(236,97,59,0.15)] transition-all duration-300 relative flex flex-col items-center justify-start h-full scroll-reveal ${inViewGrid ? "in-view" : ""}`}
+              style={{ transitionDelay: `${index * 0.2}s` }}
             >
               {/* Top Left Check Icon */}
               <div className="absolute top-0 left-0 transform -translate-x-1/3 -translate-y-[40%]">
@@ -111,9 +87,9 @@ const BenefitsSection = () => {
               <p className="text-[#333] text-[14px] md:text-[14px] leading-relaxed text-center font-medium px-1">
                 {benefit.description}
               </p>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </Container>
     </Section>
   );
