@@ -49,15 +49,9 @@ export default defineConfig(({ mode }) => ({
     rollupOptions: {
       output: {
         manualChunks: {
-          "vendor-react": [
-            "react",
-            "react-dom",
-            "react-router-dom",
-            "react-helmet-async",
-          ],
+          "vendor-react": ["react", "react-dom", "react-helmet-async"],
           "vendor-motion": ["framer-motion"],
           "vendor-forms": ["react-hook-form"],
-          "vendor-ui": ["@headlessui/react", "lucide-react"],
         },
         entryFileNames: "assets/[name]-[hash].js",
         chunkFileNames: "assets/[name]-[hash].js",

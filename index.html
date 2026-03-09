@@ -1,12 +1,62 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/webp" href="/logo.webp" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Preload hero image (LCP) -->
+  <link rel="preload" as="image" href="/hero.webp" type="image/webp" fetchpriority="high" />
+
+  <!-- Favicon estándar (fallback navegadores viejos) -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+  <!-- Favicon para navegadores modernos (sobreescribe los anteriores) -->
+  <link rel="icon" type="image/png" sizes="192x192" href="/logo-1.png" />
+
+  <!-- Apple Touch Icons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png" />
+
+  <!-- Android / PWA -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#EC613B" />
+
+  <!-- Windows Tiles -->
+  <meta name="msapplication-TileColor" content="#EC613B" />
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+  <meta name="msapplication-config" content="/browserconfig.xml" />
+
+  <!-- SEO Base -->
+  <title>Consultoría en Cultura Organizacional y Liderazgo | Escala</title>
+  <meta name="description"
+    content="Instalamos una cultura que crea líderes autónomos, equipos con ownership real y cumplimiento de KPIs. Especialistas en metodologías para PYMES." />
+  <meta name="keywords"
+    content="consultoria de procesos, estandarizacion de procesos, consultoria empresas, empresa consultora, gestion de procesos, sistematizacion de negocios, sistematizacion de procesos, consultoras de procesos, consultor de procesos, implementacion de procesos, consultoria empresarial, consultoria proceso, asesoramiento en estructuras organizacionales, empresas consultora, asesoria procesos, servicios consultoria, consultoria en procesos, reingeniería organizacional, procesos empresariales, estructura empresa, consultoría de procesos desarrollo organizacional, reingenieria de procesos" />
+
+  <!-- Open Graph / Redes Sociales -->
+  <meta property="og:title" content="Consultoría en Cultura Organizacional y Liderazgo | Escala" />
+  <meta property="og:description"
+    content="Instalamos una cultura que crea líderes autónomos, equipos con ownership real y cumplimiento de KPIs. Especialistas en metodologías para PYMES." />
+  <meta property="og:image" content="https://landing-scala.rossdigital.dev/logo.webp" />
+  <meta property="og:url" content="https://landing-scala.rossdigital.dev" />
+  <meta property="og:type" content="website" />
+
+  <!-- Preconnect crítico -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://formsubmit.co" />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+  <!-- Google Fonts: Bebas Neue y Montserrat -->
   <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&display=block"
     as="style" />

@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Container from "../layout/Container";
 import logoImg from "../assets/img/logo.webp";
 
@@ -55,7 +54,7 @@ const Footer = () => {
           {/* Logo and Info */}
           <div className="flex flex-col">
             <div className="mb-12">
-              <Link to="/" onClick={() => window.scrollTo(0, 0)}>
+              <a href="/" onClick={() => window.scrollTo(0, 0)}>
                 <img
                   src={logoImg}
                   alt="ESCALA Logo"
@@ -65,7 +64,7 @@ const Footer = () => {
                   height="40"
                   loading="lazy"
                 />
-              </Link>
+              </a>
             </div>
 
             <div className="text-[13px] md:text-[14px] leading-relaxed mb-8 flex flex-col gap-3">

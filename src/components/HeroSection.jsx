@@ -1,7 +1,9 @@
 import React from "react";
 import Container from "../layout/Container";
 import LeadForm from "./LeadForm";
-import heroImg from "../assets/img/hero.webp";
+
+// Imagen servida desde public/ para habilitar preload en index.html
+const heroImg = "/hero.webp";
 
 const HeroSection = () => {
   return (
@@ -13,23 +15,15 @@ const HeroSection = () => {
         <div className="w-full flex justify-center text-center">
           {/* The h1 matches the exact typographical layout of the image */}
           <h1
-            className="uppercase w-full select-none mb-6 md:mb-10 text-[28px] md:text-[34px] lg:text-[52px] font-black !leading-[1.1] tracking-[0.03em]"
+            className="uppercase w-full select-none mb-6 md:mb-10 text-[28px] md:text-[34px] lg:text-[48px] font-black !leading-[1.1] tracking-[0.03em]"
             style={{ textShadow: "2px 2px 0px #D1D5DB" }}
           >
-            <span className="text-gray-900">
-              Instalamos una cultura que crea
-            </span>
-            <span className="text-gray-900">
-              líderes <span className="text-[#EC613B]">autónomos,</span> equipos
-              con
-            </span>
-            <span className="text-[#EC613B]">
-              ownership <span className="text-gray-900">real y</span>{" "}
-              cumplimiento
-            </span>
-            <span className="text-gray-900">
-              consistente de <span className="text-[#EC613B]">KPIs</span>
-            </span>
+            Instalamos una cultura que crea líderes{" "}
+            <span className="text-[#EC613B]">autónomos,</span> equipos con{" "}
+            <br className="hidden md:block" />
+            <span className="text-[#EC613B]">ownership</span> real y{" "}
+            <span className="text-[#EC613B]">cumplimiento</span> consistente de{" "}
+            <span className="text-[#EC613B]">KPIs</span>
           </h1>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 items-start lg:items-center">
@@ -48,7 +42,10 @@ const HeroSection = () => {
                   aspectRatio: "1/1",
                 }}
                 loading="eager"
+                fetchpriority="high"
+                decoding="async"
                 width="650"
+                height="650"
               />
             </div>
           </div>

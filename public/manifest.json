@@ -1,0 +1,21 @@
+{
+    "name": "ESCALA | Consultoría Organizacional",
+    "short_name": "ESCALA",
+    "description": "Instalamos una cultura que crea líderes autónomos, equipos con ownership real y cumplimiento de KPIs.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#EC613B",
+    "icons": [
+        {
+            "src": "/android-icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/favicon-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        }
+    ]
+}
