@@ -2,9 +2,9 @@ import React from "react";
 import Container from "../layout/Container";
 import LeadForm from "./LeadForm";
 
-// Imágenes hero desde public/ (preload en index.html por viewport)
+// Imágenes hero desde public/ (preload en index.html; desktop = 900px para ahorro)
 const heroMobile = "/hero-mobile.webp";
-const heroDesktop = "/hero.webp";
+const heroDesktop = "/hero-desktop.webp";
 
 const HeroSection = () => {
   return (

@@ -7,6 +7,7 @@
     "dev": "vite",
     "prebuild": "node scripts/resize-hero.js",
     "build": "vite build",
+    "postbuild": "node scripts/inject-font-preload.js",
     "build:analyze": "vite build --mode production && start dist/stats.html",
     "lint": "eslint .",
     "preview": "vite preview --port 4173",
