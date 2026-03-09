@@ -47,7 +47,7 @@ const BenefitsSection = () => {
   };
 
   return (
-    <Section id="benefits" className="bg-white py-16 md:py-24 text-center">
+    <Section id="benefits" className="bg-white py-0 md:py-0 text-center">
       <Container className="max-w-[1250px]">
         {/* Title Block */}
         <motion.div

@@ -66,7 +66,7 @@ const TransformationSection = () => {
   ];
 
   return (
-    <Section id="transformations" className="bg-white py-16 md:py-24">
+    <Section id="transformations" className="bg-white py-10 md:py-10">
       <Container className="max-w-[1250px]">
         <motion.div
           initial={{ opacity: 0, y: 40 }}

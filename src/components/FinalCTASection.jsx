@@ -146,7 +146,7 @@ const FinalCTASection = () => {
         </Container>
       </Section>
 
-      <Section bgClass="bg-[#F4F4F4]" className="py-16 md:py-24 text-center">
+      <Section bgClass="bg-[#F4F4F4]" className="py-8 md:py-8 text-center">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 30 }}

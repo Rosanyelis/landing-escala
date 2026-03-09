@@ -75,7 +75,7 @@ const TestimonialsSection = () => {
   return (
     <Section
       id="testimonials"
-      className="bg-white py-16 md:py-24 text-center overflow-hidden"
+      className="bg-white py-0 md:py-16 text-center overflow-hidden"
     >
       <Container>
         <motion.div

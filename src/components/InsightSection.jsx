@@ -15,7 +15,7 @@ const InsightSection = () => {
       className="bg-white pb-16 md:pb-24 text-center px-0 !pt-0"
     >
       {/* Grey full-width band */}
-      <div className="w-full bg-[#F4F4F4] py-16 md:py-20 mb-16 md:mb-24">
+      <div className="w-full bg-[#F4F4F4] py-8 md:py-16 mb-8 md:mb-16">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 40 }}

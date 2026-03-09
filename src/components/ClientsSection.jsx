@@ -87,7 +87,7 @@ const ClientsSection = () => {
       <Section
         id="authority"
         bgClass="bg-[#F4F4F4]"
-        className="py-16 md:py-28 text-center"
+        className="py-16 md:py-16 text-center"
       >
         <Container>
           <motion.div
@@ -95,7 +95,7 @@ const ClientsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
-            className="mb-16 md:mb-24"
+            className="mb-5 md:mb-5"
           >
             <h2 className="uppercase font-bebas text-black leading-none mb-10 md:mb-16 text-center text-[40px] md:text-[56px] lg:text-[68px] tracking-[0.02em]">
               NUESTRA EXPERIENCIA HABLA POR NOSOTROS
@@ -123,7 +123,7 @@ const ClientsSection = () => {
         </Container>
       </Section>
 
-      <Section className="pb-16 pt-8 md:pb-24">
+      <Section className="pb-8 pt-8 md:pb-8">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 40 }}

@@ -10,32 +10,33 @@ const HeroSection = () => {
       className="pt-28 md:pt-30 lg:pt-48 pb-16 lg:pb-24 relative overflow-hidden bg-white w-full"
     >
       <Container className="max-w-[1300px]">
+        <div className="w-full flex justify-center text-center">
+          {/* The h1 matches the exact typographical layout of the image */}
+          <h1
+            className="uppercase w-full select-none mb-6 md:mb-10 text-[28px] md:text-[34px] lg:text-[52px] font-black !leading-[1.1] tracking-[0.03em]"
+            style={{ textShadow: "2px 2px 0px #D1D5DB" }}
+          >
+            <span className="text-gray-900">
+              Instalamos una cultura que crea
+            </span>
+            <span className="text-gray-900">
+              líderes <span className="text-[#EC613B]">autónomos,</span> equipos
+              con
+            </span>
+            <span className="text-[#EC613B]">
+              ownership <span className="text-gray-900">real y</span>{" "}
+              cumplimiento
+            </span>
+            <span className="text-gray-900">
+              consistente de <span className="text-[#EC613B]">KPIs</span>
+            </span>
+          </h1>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 items-start lg:items-center">
           <div
             className="md:col-span-7 lg:col-span-7 flex flex-col items-center text-center w-full animate-fade-in-up opacity-0"
             style={{ animationDelay: "100ms" }}
           >
-            {/* The h1 matches the exact typographical layout of the image */}
-            <h1
-              className="uppercase w-full select-none mb-6 md:mb-10 text-[24px] md:text-[34px] lg:text-[52px] font-black !leading-[1.1] tracking-[0.03em]"
-              style={{ textShadow: "2px 2px 0px #D1D5DB" }}
-            >
-              <span className="block text-gray-900">
-                Instalamos una cultura que crea
-              </span>
-              <span className="block text-gray-900">
-                líderes <span className="text-[#EC613B]">autónomos,</span>{" "}
-                equipos con
-              </span>
-              <span className="block text-[#EC613B]">
-                ownership <span className="text-gray-900">real y</span>{" "}
-                cumplimiento
-              </span>
-              <span className="block text-gray-900">
-                consistente de <span className="text-[#EC613B]">KPIs</span>
-              </span>
-            </h1>
-
             {/* Hero Image */}
             <div className="w-full flex justify-center">
               <img
