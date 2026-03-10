@@ -47,10 +47,26 @@ const TestimonialsSection = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
+    let rafId = 0;
+    const checkMobile = () => {
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setIsMobile(window.innerWidth < 768);
+        });
+      });
+    };
+    // Diferir lectura de innerWidth hasta después del primer paint para evitar reprocesamiento forzado
+    const idleId = requestIdleCallback
+      ? requestIdleCallback(() => checkMobile(), { timeout: 100 })
+      : setTimeout(checkMobile, 0);
     window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
+    return () => {
+      cancelAnimationFrame(rafId);
+      if (requestIdleCallback && typeof idleId === "number") cancelIdleCallback(idleId);
+      else clearTimeout(idleId);
+      window.removeEventListener("resize", checkMobile);
+    };
   }, []);
 
   useEffect(() => {
@@ -76,11 +92,12 @@ const TestimonialsSection = () => {
       id="testimonials"
       className="bg-white py-0 md:py-16 text-center overflow-hidden"
     >
-      <Container>
-        <div
-          ref={sectionRef}
-          className={`text-center mb-8 scroll-reveal ${isInView ? "in-view" : ""}`}
-        >
+      <div style={{ contain: "layout paint" }}>
+        <Container>
+          <div
+            ref={sectionRef}
+            className={`text-center mb-8 scroll-reveal ${isInView ? "in-view" : ""}`}
+          >
           <div className="flex justify-left items-left gap-4 mb-4">
             <span className="text-brand-primary text-4xl font-serif">
               <svg
@@ -272,6 +289,7 @@ const TestimonialsSection = () => {
           </p>
         </div>
       </Container>
+      </div>
     </Section>
   );
 };

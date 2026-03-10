@@ -10,7 +10,7 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="pt-28 md:pt-30 lg:pt-48 pb-16 lg:pb-24 relative overflow-hidden bg-white w-full"
+      className="pt-18 md:pt-10 lg:pt-18 pb-16 lg:pb-24 relative overflow-hidden bg-white w-full"
     >
       <Container className="max-w-[1300px]">
         <div className="w-full flex justify-center text-center">
@@ -27,7 +27,8 @@ const HeroSection = () => {
             <span className="text-[#EC613B]">KPIs</span>
           </h1>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 items-start lg:items-center">
+        {/* min-height reserva espacio y evita CLS cuando cargan fuentes/contenido del formulario */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 items-start lg:items-center min-h-[1000px] md:min-h-[540px]">
           <div
             className="md:col-span-7 lg:col-span-7 flex flex-col items-center text-center w-full animate-fade-in-up opacity-0"
             style={{ animationDelay: "100ms" }}
@@ -64,11 +65,11 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Form Column */}
+          {/* Form Column: contain layout para limitar reflow y reservar altura estable (CLS) */}
           <div
-            className="md:col-span-5 lg:col-span-5 relative z-10 w-full max-w-[480px] mx-auto animate-fade-in opacity-0"
+            className="md:col-span-5 lg:col-span-5 relative z-10 w-full max-w-[480px] mx-auto animate-fade-in opacity-0 min-h-[480px]"
             id="diagnostico-form"
-            style={{ animationDelay: "400ms" }}
+            style={{ animationDelay: "400ms", contain: "layout" }}
           >
             <LeadForm />
           </div>

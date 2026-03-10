@@ -1,7 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 const LeadForm = () => {
+  useEffect(() => {
+    const link = document.createElement("link");
+    link.rel = "preconnect";
+    link.href = "https://formsubmit.co";
+    document.head.appendChild(link);
+  }, []);
+
   const {
     register,
     handleSubmit,
@@ -74,7 +81,7 @@ const LeadForm = () => {
 
   return (
     <>
-      <div className="bg-white px-6 py-8 md:px-10 md:py-10 rounded-[30px] border border-gray-100 shadow-[0_15px_60px_rgba(0,0,0,0.15)] w-full max-w-[480px] mx-auto relative">
+      <div className="bg-white px-6 py-8 md:px-10 md:py-10 rounded-[30px] border border-gray-100 shadow-[0_15px_60px_rgba(0,0,0,0.15)] w-full max-w-[480px] mx-auto relative min-h-[460px]">
         {/* Error box */}
         {formError && (
           <div className="mb-6 p-4 text-sm text-[#721c24] bg-[#f8d7da] border border-[#f5c6cb] rounded-[10px] flex items-start shadow-sm">

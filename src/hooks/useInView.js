@@ -16,10 +16,12 @@ export function useInView(options = {}) {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setInView(true);
+          requestAnimationFrame(() => {
+            setInView(true);
+          });
           if (once) observer.disconnect();
         } else if (!once) {
-          setInView(false);
+          requestAnimationFrame(() => setInView(false));
         }
       },
       { rootMargin: margin, threshold: amount },

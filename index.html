@@ -4,9 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Preload hero (LCP): móvil/tablet/desktop con tamaños optimizados (~953 KiB ahorro) -->
-  <link rel="preload" as="image" href="/hero-mobile.webp" type="image/webp" fetchpriority="high" media="(max-width: 768px)" />
-  <link rel="preload" as="image" href="/hero-desktop.webp" type="image/webp" fetchpriority="high" media="(min-width: 769px)" />
+  <!-- Hero preload se inyecta al inicio del head en postbuild -->
 
   <!-- Favicon estándar (fallback navegadores viejos) -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -66,13 +64,28 @@
       color: #ec613b;
     }
   </style>
-  <link rel="dns-prefetch" href="https://formsubmit.co" />
-  <!-- GTM/gtag se carga de forma diferida vía src/utils/loadAnalytics.js cuando VITE_GTM_ID está definido -->
-  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+  <!-- Preconnect solo para orígenes de la ruta crítica; formsubmit.co se preconecta al montar el formulario -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
 </head>
 
 <body>
-  <div id="root"></div>
+  <!-- Hero visible en HTML: LCP se pinta sin esperar al JS (mejora LCP y Speed Index). React reemplaza #root al montar. -->
+  <div id="root" style="padding-top: 7rem; min-height: 100vh; background: #fff;">
+    <picture>
+      <source media="(max-width: 768px)" srcset="./hero-mobile.webp" type="image/webp" />
+      <source media="(min-width: 769px)" srcset="./hero-desktop.webp" type="image/webp" />
+      <img
+        src="./hero-desktop.webp"
+        alt="Cultura Organizacional Escala"
+        width="650"
+        height="650"
+        fetchpriority="high"
+        loading="eager"
+        decoding="async"
+        style="width:100%;max-width:650px;height:auto;aspect-ratio:1/1;object-fit:cover;display:block;margin:0 auto;border-radius:40px;box-shadow:0 10px 20px rgba(0,0,0,0.08)"
+      />
+    </picture>
+  </div>
   <script type="module" src="/src/main.jsx"></script>
 </body>
 
