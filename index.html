@@ -69,13 +69,29 @@
 </head>
 
 <body>
+  <!-- Captura errores de carga/ejecución para diagnosticar pantalla en blanco (p. ej. Safari) -->
+  <script>
+    window.__pageError = null;
+    window.onerror = function(msg, url, line, col, err) {
+      window.__pageError = msg + (err && err.stack ? "\n" + err.stack : "");
+      var r = document.getElementById("root");
+      if (r) r.innerHTML = "<div style=\"padding:2rem;font-family:monospace;white-space:pre-wrap;color:#c00;max-width:600px;margin:0 auto;font-size:14px\">Error: " + (msg || "") + (err && err.stack ? "\n\n" + err.stack : "") + "</div>";
+    };
+    window.addEventListener("unhandledrejection", function(e) {
+      window.__pageError = e.reason;
+      var r = document.getElementById("root");
+      if (r) r.innerHTML = "<div style=\"padding:2rem;font-family:monospace;white-space:pre-wrap;color:#c00;max-width:600px;margin:0 auto\">Unhandled: " + String(e.reason) + "</div>";
+    });
+  </script>
   <!-- Hero visible en HTML: LCP se pinta sin esperar al JS (mejora LCP y Speed Index). React reemplaza #root al montar. -->
   <div id="root" style="padding-top: 7rem; min-height: 100vh; background: #fff;">
     <picture>
       <source media="(max-width: 768px)" srcset="./hero-mobile.webp" type="image/webp" />
       <source media="(min-width: 769px)" srcset="./hero-desktop.webp" type="image/webp" />
+      <source media="(max-width: 768px)" srcset="./hero-mobile.jpg" type="image/jpeg" />
+      <source media="(min-width: 769px)" srcset="./hero-desktop.jpg" type="image/jpeg" />
       <img
-        src="./hero-desktop.webp"
+        src="./hero-desktop.jpg"
         alt="Cultura Organizacional Escala"
         width="650"
         height="650"

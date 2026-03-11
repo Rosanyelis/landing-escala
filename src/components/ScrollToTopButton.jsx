@@ -27,7 +27,7 @@ const ScrollToTopButton = () => {
     <button
       onClick={scrollToTop}
       aria-label="Volver al principio"
-      className="fixed z-[60] bottom-24 md:bottom-8 right-4 md:right-8 bg-[#EC613B] text-white p-3 rounded-full shadow-2xl hover:bg-[#D45431] transition-all duration-200 active:scale-95 flex items-center justify-center group"
+      className="fixed z-[60] bottom-6 md:bottom-4 right-4 md:right-8 bg-[#EC613B] text-white p-3 rounded-full shadow-2xl hover:bg-[#D45431] transition-all duration-200 active:scale-95 flex items-center justify-center group"
       style={{
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? "scale(1)" : "scale(0.8)",

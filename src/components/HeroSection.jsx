@@ -2,9 +2,11 @@ import React from "react";
 import Container from "../layout/Container";
 import LeadForm from "./LeadForm";
 
-// Imágenes hero desde public/ (preload en index.html; desktop = 900px para ahorro)
+// Imágenes hero desde public/ (WebP + JPG fallback para Safari sin WebP)
 const heroMobile = "/hero-mobile.webp";
 const heroDesktop = "/hero-desktop.webp";
+const heroMobileJpg = "/hero-mobile.jpg";
+const heroDesktopJpg = "/hero-desktop.jpg";
 
 const HeroSection = () => {
   return (
@@ -46,8 +48,18 @@ const HeroSection = () => {
                   srcSet={heroDesktop}
                   type="image/webp"
                 />
+                <source
+                  media="(max-width: 768px)"
+                  srcSet={heroMobileJpg}
+                  type="image/jpeg"
+                />
+                <source
+                  media="(min-width: 769px)"
+                  srcSet={heroDesktopJpg}
+                  type="image/jpeg"
+                />
                 <img
-                  src={heroDesktop}
+                  src={heroDesktopJpg}
                   alt="Cultura Organizacional Escala"
                   className="w-full max-w-[650px] h-auto object-cover rounded-[40px] md:rounded-[60px]"
                   style={{

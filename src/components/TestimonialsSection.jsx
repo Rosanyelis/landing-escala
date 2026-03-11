@@ -56,14 +56,16 @@ const TestimonialsSection = () => {
         });
       });
     };
-    // Diferir lectura de innerWidth hasta después del primer paint para evitar reprocesamiento forzado
-    const idleId = requestIdleCallback
-      ? requestIdleCallback(() => checkMobile(), { timeout: 100 })
+    // Diferir lectura de innerWidth hasta después del primer paint (Safari < 15.4 no tiene requestIdleCallback)
+    const hasIdleCallback = typeof window.requestIdleCallback === "function";
+    const hasCancelIdle = typeof window.cancelIdleCallback === "function";
+    const idleId = hasIdleCallback
+      ? window.requestIdleCallback(() => checkMobile(), { timeout: 100 })
       : setTimeout(checkMobile, 0);
     window.addEventListener("resize", checkMobile);
     return () => {
       cancelAnimationFrame(rafId);
-      if (requestIdleCallback && typeof idleId === "number") cancelIdleCallback(idleId);
+      if (hasCancelIdle && typeof idleId === "number") window.cancelIdleCallback(idleId);
       else clearTimeout(idleId);
       window.removeEventListener("resize", checkMobile);
     };

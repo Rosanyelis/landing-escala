@@ -66,57 +66,57 @@ const InsightSection = () => {
 
           <div
             ref={ref4}
-            className={`w-full bg-[#EBEBEB] rounded-t-[30px] rounded-b-[30px] md:rounded-b-none pt-12 pb-14 px-4 shadow-[inset_0_2px_10px_rgba(0,0,0,0.02)] scroll-reveal ${inView4 ? "in-view" : ""}`}
+            className={`w-full bg-[#EBEBEB] rounded-t-[30px] rounded-b-[30px] md:rounded-b-none pt-8 pb-10 md:pt-8 md:pb-8 px-4 shadow-[inset_0_2px_10px_rgba(0,0,0,0.02)] scroll-reveal ${inView4 ? "in-view" : ""}`}
             style={{ transitionDelay: "0.6s" }}
           >
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 sm:gap-6 max-w-[650px] mx-auto">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-4 md:gap-6 max-w-[650px] mx-auto">
               {/* Factor 1: Reglas */}
               <div className="flex flex-col items-center">
-                <div className="w-[100px] h-[100px] rounded-full bg-[#EC613B] flex items-center justify-center mb-5 border-4 border-transparent hover:border-white/20 transition-all shadow-md">
+                <div className="w-[72px] h-[72px] md:w-[100px] md:h-[100px] rounded-full bg-[#EC613B] flex items-center justify-center mb-3 md:mb-5 border-2 md:border-4 border-transparent hover:border-white/20 transition-all shadow-md">
                   <img
                     src={reglasImg}
                     alt="Icono Reglas"
-                    className="w-[54px] h-[54px] object-contain"
+                    className="w-[38px] h-[38px] md:w-[54px] md:h-[54px] object-contain"
                     width="54"
                     height="54"
                     loading="lazy"
                   />
                 </div>
-                <span className="uppercase font-bold text-[#EC613B] tracking-tighter text-[28px]">
+                <span className="uppercase font-bold text-[#EC613B] tracking-tighter text-[20px] md:text-[28px]">
                   REGLAS
                 </span>
               </div>
 
               {/* Factor 2: Métricas */}
               <div className="flex flex-col items-center">
-                <div className="w-[100px] h-[100px] rounded-full bg-[#EC613B] flex items-center justify-center mb-5 border-4 border-transparent hover:border-white/20 transition-all shadow-md">
+                <div className="w-[72px] h-[72px] md:w-[100px] md:h-[100px] rounded-full bg-[#EC613B] flex items-center justify-center mb-3 md:mb-5 border-2 md:border-4 border-transparent hover:border-white/20 transition-all shadow-md">
                   <img
                     src={metricas}
-                    alt="Icono Reglas"
-                    className="w-[54px] h-[54px] object-contain"
+                    alt="Icono Métricas"
+                    className="w-[38px] h-[38px] md:w-[54px] md:h-[54px] object-contain"
                     width="54"
                     height="54"
                     loading="lazy"
                   />
                 </div>
-                <span className="uppercase font-bold text-[#EC613B] tracking-tighter text-[28px]">
+                <span className="uppercase font-bold text-[#EC613B] tracking-tighter text-[20px] md:text-[28px]">
                   MÉTRICAS
                 </span>
               </div>
 
-              {/* Factor 3: Estructura */}
-              <div className="flex flex-col items-center">
-                <div className="w-[100px] h-[100px] rounded-full bg-[#EC613B] flex items-center justify-center mb-5 border-4 border-transparent hover:border-white/20 transition-all shadow-md">
+              {/* Factor 3: Estructura — en móvil ocupa la fila inferior centrado */}
+              <div className="flex flex-col items-center col-span-2 sm:col-span-1">
+                <div className="w-[72px] h-[72px] md:w-[100px] md:h-[100px] rounded-full bg-[#EC613B] flex items-center justify-center mb-3 md:mb-5 border-2 md:border-4 border-transparent hover:border-white/20 transition-all shadow-md">
                   <img
                     src={estructura}
-                    alt="Icono Reglas"
-                    className="w-[54px] h-[54px] object-contain"
+                    alt="Icono Estructura"
+                    className="w-[38px] h-[38px] md:w-[54px] md:h-[54px] object-contain"
                     width="54"
                     height="54"
                     loading="lazy"
                   />
                 </div>
-                <span className="uppercase font-bold text-[#EC613B] tracking-tighter text-[28px]">
+                <span className="uppercase font-bold text-[#EC613B] tracking-tighter text-[20px] md:text-[28px]">
                   ESTRUCTURA
                 </span>
               </div>

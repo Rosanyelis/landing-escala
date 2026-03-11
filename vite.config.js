@@ -42,7 +42,7 @@ export default defineConfig(({ mode }) => ({
   ].filter(Boolean),
 
   build: {
-    target: "esnext",
+    target: "safari15",
     cssCodeSplit: true,
     sourcemap: mode === "development",
 

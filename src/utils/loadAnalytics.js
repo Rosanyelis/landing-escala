@@ -3,8 +3,8 @@
  * para no bloquear el render ni el LCP. Se ejecuta después del load o en requestIdleCallback.
  */
 const runWhenIdle = (fn) => {
-  if (typeof requestIdleCallback !== "undefined") {
-    requestIdleCallback(fn, { timeout: 3000 });
+  if (typeof window.requestIdleCallback === "function") {
+    window.requestIdleCallback(fn, { timeout: 3000 });
   } else {
     setTimeout(fn, 1);
   }

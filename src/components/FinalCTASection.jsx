@@ -24,8 +24,7 @@ const FinalCTASection = () => {
             <h2 className="uppercase font-bold text-gray-900 leading-tight">
               <span className="text-[28px] md:text-[36px]">
                 SOLICITA TU DIAGNÓSTICO{" "}
-                <span className="text-brand-primary">GRATUITO</span> PARA{" "}
-                <span className="text-brand-primary">ESCALAR</span>:
+                <span className="text-brand-primary">GRATUITO</span>
               </span>
             </h2>
           </div>

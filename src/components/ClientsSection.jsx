@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Container from "../layout/Container";
 import Section from "../layout/Section";
 import { useInView } from "../hooks/useInView";
+import { useCarouselScroll } from "../hooks/useCarouselScroll";
 
 import tecnologia from "../assets/img/sectores/tecnologia.webp";
 import consultoria from "../assets/img/sectores/consultoria.webp";
@@ -30,12 +31,11 @@ import client13 from "../assets/img/clientes/cliente-13.webp";
 import client14 from "../assets/img/clientes/cliente-14.webp";
 import client15 from "../assets/img/clientes/cliente-15.webp";
 
-const AnimatedNumber = ({ value }) => {
-  const [ref, inView] = useInView({ once: true, margin: "-100px" });
+const AnimatedNumber = ({ value, startAnimation }) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    if (!inView) return;
+    if (!startAnimation) return;
     const duration = 2500;
     const start = performance.now();
     const step = (now) => {
@@ -46,9 +46,9 @@ const AnimatedNumber = ({ value }) => {
       if (progress < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
-  }, [inView, value]);
+  }, [startAnimation, value]);
 
-  return <span ref={ref}>{count}</span>;
+  return <span>{count}</span>;
 };
 
 const ClientsSection = () => {
@@ -85,6 +85,10 @@ const ClientsSection = () => {
   const [refStats, inViewStats] = useInView({ amount: 0.2 });
   const [refSectors, inViewSectors] = useInView({ amount: 0.2 });
   const [refClients, inViewClients] = useInView({ amount: 0 });
+  const sectorsCarouselRef = useRef(null);
+  const clientsCarouselRef = useRef(null);
+  useCarouselScroll(sectorsCarouselRef, { speed: 0.5 });
+  useCarouselScroll(clientsCarouselRef, { speed: 0.5 });
 
   return (
     <>
@@ -105,7 +109,7 @@ const ClientsSection = () => {
             <div className="flex flex-row justify-center items-center gap-16 md:gap-36">
               <div className="text-center">
                 <p className="text-[#EC613B] text-[70px] md:text-[110px] lg:text-[140px] font-bebas leading-[0.8] tracking-tight">
-                  +<AnimatedNumber value={60} />
+                  +<AnimatedNumber value={60} startAnimation={inViewStats} />
                 </p>
                 <p className="text-black font-bold text-[18px] md:text-[22px] mt-3 md:mt-5 capitalize tracking-wide font-sans">
                   Sectores
@@ -113,7 +117,7 @@ const ClientsSection = () => {
               </div>
               <div className="text-center">
                 <p className="text-[#EC613B] text-[70px] md:text-[110px] lg:text-[140px] font-bebas leading-[0.8] tracking-tight">
-                  +<AnimatedNumber value={300} />
+                  +<AnimatedNumber value={300} startAnimation={inViewStats} />
                 </p>
                 <p className="text-black font-bold text-[18px] md:text-[22px] mt-3 md:mt-5 capitalize tracking-wide font-sans">
                   Empresas
@@ -135,13 +139,38 @@ const ClientsSection = () => {
             </h3>
 
             <div className="bg-[#EBEBEB] rounded-[20px] md:rounded-[30px] p-8 md:p-14 relative">
-              <div className="flex flex-wrap justify-center gap-4 md:gap-x-6 md:gap-y-5">
+              {/* Móvil: carrusel arrastrable con ratón/táctil y auto-scroll */}
+              <div ref={sectorsCarouselRef} className="md:hidden w-full -mx-1 carousel-scroll-touch">
+                <div className="flex items-center gap-4 w-max">
+                  {[...sectors, ...sectors].map((sector, index) => (
+                    <div
+                      key={`mobile-${index}`}
+                      className="flex-shrink-0 bg-white border border-[#EC613B] text-gray-900 rounded-[10px] py-3 px-6 flex items-center justify-center gap-3 shadow-[0_2px_8px_rgba(0,0,0,0.04)] whitespace-nowrap"
+                    >
+                      {sector.icon && (
+                        <img
+                          src={sector.icon}
+                          alt={`Icono ${sector.name}`}
+                          className="w-[32px] h-[32px] object-contain"
+                          width="32"
+                          height="32"
+                          loading="lazy"
+                        />
+                      )}
+                      <span className="font-bold text-[14px] font-sans">
+                        {sector.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              {/* Desktop: grid de rubros como antes */}
+              <div className="hidden md:flex flex-wrap justify-center gap-4 md:gap-x-6 md:gap-y-5">
                 {sectors.map((sector, index) => (
                   <div
                     key={index}
                     className="bg-white border border-[#EC613B] text-gray-900 rounded-[10px] py-3 px-6 md:px-8 flex items-center justify-center gap-3 shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-md transition-shadow whitespace-nowrap"
                   >
-                    {/* El tag img se mostrará solo si le asignas una imagen */}
                     {sector.icon && (
                       <img
                         src={sector.icon}
@@ -170,7 +199,28 @@ const ClientsSection = () => {
               ALGUNOS DE NUESTROS CLIENTES:
             </h3>
 
-            <div className="flex flex-wrap justify-center items-center gap-6 md:gap-x-10 md:gap-y-10 max-w-[1150px] mx-auto">
+            {/* Móvil: carrusel arrastrable con ratón/táctil y auto-scroll */}
+            <div ref={clientsCarouselRef} className="md:hidden w-full -mx-1 carousel-scroll-touch">
+              <div className="flex items-center gap-6 w-max py-2">
+                {[...clients, ...clients].map((logoSource, index) => (
+                  <div
+                    key={`mobile-client-${index}`}
+                    className="flex-shrink-0 w-[85px] h-[85px] flex items-center justify-center"
+                  >
+                    <img
+                      src={logoSource}
+                      alt={`Cliente ${(index % clients.length) + 1}`}
+                      className="w-full h-full object-contain rounded-full"
+                      width="85"
+                      height="85"
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* Desktop: grid de logos como antes */}
+            <div className="hidden md:flex flex-wrap justify-center items-center gap-6 md:gap-x-10 md:gap-y-10 max-w-[1150px] mx-auto">
               {clients.map((logoSource, index) => (
                 <div
                   key={index}
