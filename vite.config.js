@@ -4,7 +4,7 @@ import { visualizer } from "rollup-plugin-visualizer";
 import viteImagemin from "vite-plugin-imagemin";
 
 export default defineConfig(({ mode }) => ({
-  base: "./",
+  base: "./desarrollo-organizacional/",
   plugins: [
     react(),
 

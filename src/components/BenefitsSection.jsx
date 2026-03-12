@@ -57,11 +57,20 @@ const BenefitsSection = () => {
         </div>
 
         {/* Móvil: carrusel arrastrable con ratón/táctil y auto-scroll */}
-        <div
-          ref={benefitsCarouselRef}
-          className="md:hidden w-full -mx-1 mt-10 pt-8 pb-6 carousel-scroll-touch"
-        >
-          <div className="flex items-center gap-5 w-max px-2">
+        <div className="md:hidden relative w-full mt-10">
+          {/* Indicadores de flechas */}
+          <div className="absolute left-0 top-[calc(50%+10px)] -translate-y-1/2 z-10 w-8 h-8 flex items-center justify-center bg-white rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.15)] pointer-events-none text-[#EC613B]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          </div>
+          <div className="absolute right-0 top-[calc(50%+10px)] -translate-y-1/2 z-10 w-8 h-8 flex items-center justify-center bg-white rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.15)] pointer-events-none text-[#EC613B]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+          
+          <div
+            ref={benefitsCarouselRef}
+            className="w-full -mx-1 pt-8 pb-6 carousel-scroll-touch"
+          >
+            <div className="flex items-center gap-5 w-max px-2">
             {[...benefits, ...benefits].map((benefit, index) => (
               <div
                 key={`mobile-benefit-${index}`}
@@ -92,6 +101,7 @@ const BenefitsSection = () => {
               </div>
             ))}
           </div>
+        </div>
         </div>
 
         {/* Desktop: grid como antes con scroll-reveal */}

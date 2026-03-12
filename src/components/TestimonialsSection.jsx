@@ -65,7 +65,8 @@ const TestimonialsSection = () => {
     window.addEventListener("resize", checkMobile);
     return () => {
       cancelAnimationFrame(rafId);
-      if (hasCancelIdle && typeof idleId === "number") window.cancelIdleCallback(idleId);
+      if (hasCancelIdle && typeof idleId === "number")
+        window.cancelIdleCallback(idleId);
       else clearTimeout(idleId);
       window.removeEventListener("resize", checkMobile);
     };
@@ -98,199 +99,201 @@ const TestimonialsSection = () => {
         <Container>
           <div
             ref={sectionRef}
-            className={`text-center mb-8 scroll-reveal ${isInView ? "in-view" : ""}`}
+            className={`text-center mb-4 scroll-reveal ${isInView ? "in-view" : ""}`}
           >
-          <div className="flex justify-left items-left gap-4 mb-4">
-            <span className="text-brand-primary text-4xl font-serif">
-              <svg
-                className="w-12 h-12 fill-brand-primary"
-                version="1.1"
-                id="Capa_1"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlnsXlink="http://www.w3.org/1999/xlink"
-                x="0px"
-                y="0px"
-                viewBox="0 0 91.673 91.673"
-                style={{ enableBackground: "new 0 0 91.673 91.673" }}
-                xmlSpace="preserve"
-              >
-                <g>
+            <div className="flex flex-col md:flex-row justify-center md:justify-start items-center md:items-center gap-3 md:gap-4 mb-4">
+              <span className="text-brand-primary font-serif flex-shrink-0">
+                <svg
+                  className="w-10 h-10 md:w-12 md:h-12 fill-brand-primary"
+                  version="1.1"
+                  id="Capa_1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlnsXlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  viewBox="0 0 91.673 91.673"
+                  style={{ enableBackground: "new 0 0 91.673 91.673" }}
+                  xmlSpace="preserve"
+                >
                   <g>
-                    <path d="M53.515,91.669c8.398-0.372,15.896-3.722,21.682-9.685c15.336-15.811,15.041-45.611,14.957-48.907L90.151,2 c0-1.104-0.896-2-2-2h-30.69c-1.104,0-2,0.896-2,2v30.691c0,1.104,0.896,2,2,2h15.685C73.144,37.254,72.833,60,62.96,70.146 c-2.672,2.746-5.836,4.215-9.674,4.484c-1.049,0.074-1.859,0.945-1.859,1.995V89.67c0,0.546,0.223,1.066,0.617,1.445 C52.438,91.493,52.962,91.703,53.515,91.669z" />
-                    <path d="M2.12,91.116c0.395,0.377,0.907,0.587,1.472,0.553c8.398-0.372,15.896-3.722,21.681-9.685 C40.609,66.174,40.314,36.373,40.23,33.077L40.228,2c0-1.104-0.896-2-2-2H7.537c-1.104,0-2,0.896-2,2v30.691c0,1.104,0.896,2,2,2 h15.684C23.217,37.254,22.907,60,13.036,70.146c-2.672,2.746-5.836,4.215-9.674,4.484c-1.048,0.074-1.859,0.945-1.859,1.995V89.67 C1.503,90.216,1.725,90.738,2.12,91.116z" />
+                    <g>
+                      <path d="M53.515,91.669c8.398-0.372,15.896-3.722,21.682-9.685c15.336-15.811,15.041-45.611,14.957-48.907L90.151,2 c0-1.104-0.896-2-2-2h-30.69c-1.104,0-2,0.896-2,2v30.691c0,1.104,0.896,2,2,2h15.685C73.144,37.254,72.833,60,62.96,70.146 c-2.672,2.746-5.836,4.215-9.674,4.484c-1.049,0.074-1.859,0.945-1.859,1.995V89.67c0,0.546,0.223,1.066,0.617,1.445 C52.438,91.493,52.962,91.703,53.515,91.669z" />
+                      <path d="M2.12,91.116c0.395,0.377,0.907,0.587,1.472,0.553c8.398-0.372,15.896-3.722,21.681-9.685 C40.609,66.174,40.314,36.373,40.23,33.077L40.228,2c0-1.104-0.896-2-2-2H7.537c-1.104,0-2,0.896-2,2v30.691c0,1.104,0.896,2,2,2 h15.684C23.217,37.254,22.907,60,13.036,70.146c-2.672,2.746-5.836,4.215-9.674,4.484c-1.048,0.074-1.859,0.945-1.859,1.995V89.67 C1.503,90.216,1.725,90.738,2.12,91.116z" />
+                    </g>
                   </g>
-                </g>
-              </svg>
-            </span>
-            <h2 className="uppercase font-bold text-gray-900 leading-tight">
-              <span className="text-[36px] md:text-[44px]">
-                ALGUNAS <span className="text-gray-900">TRANSFORMACIONES</span>
+                </svg>
               </span>
-            </h2>
+              <h2 className="uppercase font-bold text-gray-900 leading-[1.1] text-center md:text-left">
+                <span className="text-[28px] md:text-[44px]">
+                  ALGUNAS{" "}
+                  <span className="text-gray-900">TRANSFORMACIONES</span>
+                </span>
+              </h2>
+            </div>
           </div>
-        </div>
 
-        <div className="relative max-w-[1100px] mx-auto flex items-center justify-center">
-          {/* Navigation Prev */}
-          <button
-            onClick={prevTestimonial}
-            aria-label="Testimonio anterior"
-            className="hidden md:flex absolute -left-6 lg:-left-12 z-40 w-14 h-14 bg-brand-primary rounded-full items-center justify-center text-white shadow-[0_5px_15px_rgba(236,97,59,0.4)] hover:scale-105 transition-transform"
-          >
-            <svg
-              className="w-8 h-8"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+          <div className="relative max-w-[1100px] mx-auto flex items-center justify-center">
+            {/* Navigation Prev */}
+            <button
+              onClick={prevTestimonial}
+              aria-label="Testimonio anterior"
+              className="hidden md:flex absolute -left-6 lg:-left-12 z-40 w-14 h-14 bg-brand-primary rounded-full items-center justify-center text-white shadow-[0_5px_15px_rgba(236,97,59,0.4)] hover:scale-105 transition-transform"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-          </button>
+              <svg
+                className="w-8 h-8"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </button>
 
-          <div className="relative w-full grid place-items-center px-4 md:px-0 py-8 md:py-12">
-            {testimonials.map((item, index) => {
-              let position = "hidden";
-              if (index === activeIndex) position = "center";
-              else if (
-                index ===
-                (activeIndex - 1 + testimonials.length) % testimonials.length
-              )
-                position = "left";
-              else if (index === (activeIndex + 1) % testimonials.length)
-                position = "right";
+            <div className="relative w-full grid place-items-center px-4 md:px-0 py-8 md:py-12">
+              {testimonials.map((item, index) => {
+                let position = "hidden";
+                if (index === activeIndex) position = "center";
+                else if (
+                  index ===
+                  (activeIndex - 1 + testimonials.length) % testimonials.length
+                )
+                  position = "left";
+                else if (index === (activeIndex + 1) % testimonials.length)
+                  position = "right";
 
-              const isActive = position === "center";
+                const isActive = position === "center";
 
-              const positionStyles = {
-                center: {
-                  transform: "translateX(0) scale(1)",
-                  zIndex: 30,
-                  opacity: 1,
-                },
-                left: {
-                  transform: isMobile
-                    ? "translateX(0) scale(1)"
-                    : "translateX(-65%) scale(0.8)",
-                  zIndex: 10,
-                  opacity: isMobile ? 0 : 0.5,
-                },
-                right: {
-                  transform: isMobile
-                    ? "translateX(0) scale(1)"
-                    : "translateX(65%) scale(0.8)",
-                  zIndex: 10,
-                  opacity: isMobile ? 0 : 0.5,
-                },
-                hidden: {
-                  transform: "scale(0.8)",
-                  zIndex: 0,
-                  opacity: 0,
-                },
-              };
+                const positionStyles = {
+                  center: {
+                    transform: "translateX(0) scale(1)",
+                    zIndex: 30,
+                    opacity: 1,
+                  },
+                  left: {
+                    transform: isMobile
+                      ? "translateX(0) scale(1)"
+                      : "translateX(-65%) scale(0.8)",
+                    zIndex: 10,
+                    opacity: isMobile ? 0 : 0.5,
+                  },
+                  right: {
+                    transform: isMobile
+                      ? "translateX(0) scale(1)"
+                      : "translateX(65%) scale(0.8)",
+                    zIndex: 10,
+                    opacity: isMobile ? 0 : 0.5,
+                  },
+                  hidden: {
+                    transform: "scale(0.8)",
+                    zIndex: 0,
+                    opacity: 0,
+                  },
+                };
 
-              return (
-                <div
-                  key={item.id}
-                  className={`col-start-1 row-start-1 w-full h-fit max-w-[340px] md:max-w-[520px] rounded-[30px] p-8 md:p-10 flex flex-col justify-center text-center cursor-pointer transition-all duration-[1500ms] ease-in-out
+                return (
+                  <div
+                    key={item.id}
+                    className={`col-start-1 row-start-1 w-full h-fit max-w-[340px] md:max-w-[520px] rounded-[30px] p-8 md:p-10 flex flex-col justify-center text-center cursor-pointer transition-all duration-[1500ms] ease-in-out
                     ${
                       isActive
                         ? "bg-gradient-to-br from-[#2F2522] to-[#17110F] shadow-[0_20px_60px_rgba(236,97,59,0.3)] border border-[#EC613B]/40"
                         : "bg-white shadow-[0_5px_20px_rgba(0,0,0,0.1)] border border-gray-100"
                     }
                   `}
-                  onClick={() => !isActive && setActiveIndex(index)}
-                  style={{
-                    ...positionStyles[position],
-                    transformOrigin: "center center",
-                  }}
-                >
-                  {isActive && (
-                    <div className="absolute top-0 left-0 w-full h-[30%] bg-gradient-to-b from-[#EC613B]/20 to-transparent rounded-t-[30px] pointer-events-none" />
-                  )}
+                    onClick={() => !isActive && setActiveIndex(index)}
+                    style={{
+                      ...positionStyles[position],
+                      transformOrigin: "center center",
+                    }}
+                  >
+                    {isActive && (
+                      <div className="absolute top-0 left-0 w-full h-[30%] bg-gradient-to-b from-[#EC613B]/20 to-transparent rounded-t-[30px] pointer-events-none" />
+                    )}
 
-                  <div className="relative z-10 flex flex-col h-full justify-center">
-                    <p
-                      className={`font-bold italic text-[16px] md:text-[18px] mb-6 leading-snug tracking-wide
+                    <div className="relative z-10 flex flex-col h-full justify-center">
+                      <p
+                        className={`font-bold italic text-[16px] md:text-[18px] mb-6 leading-snug tracking-wide
                         ${isActive ? "text-white shadow-black drop-shadow-md" : "text-gray-900"}
                       `}
-                    >
-                      {item.quote}
-                    </p>
-                    <p
-                      className={`font-bold text-[14px] md:text-[16px] mb-4 tracking-wider
+                      >
+                        {item.quote}
+                      </p>
+                      <p
+                        className={`font-bold text-[14px] md:text-[16px] mb-4 tracking-wider
                         ${isActive ? "text-[#EC613B]" : "text-[#EC613B]"}
                       `}
-                    >
-                      {item.name}, {item.company}
-                    </p>
-                    <p
-                      className={`italic text-[13px] md:text-[14px] leading-relaxed
+                      >
+                        {item.name}, {item.company}
+                      </p>
+                      <p
+                        className={`italic text-[13px] md:text-[14px] leading-relaxed
                         ${isActive ? "text-gray-300" : "text-gray-600"}
                       `}
-                    >
-                      "{item.results}"
-                    </p>
+                      >
+                        "{item.results}"
+                      </p>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
+
+            {/* Navigation Next */}
+            <button
+              onClick={nextTestimonial}
+              aria-label="Siguiente testimonio"
+              className="hidden md:flex absolute -right-6 lg:-right-12 z-40 w-14 h-14 bg-brand-primary rounded-full items-center justify-center text-white shadow-[0_5px_15px_rgba(236,97,59,0.4)] hover:scale-105 transition-transform"
+            >
+              <svg
+                className="w-8 h-8"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
           </div>
 
-          {/* Navigation Next */}
-          <button
-            onClick={nextTestimonial}
-            aria-label="Siguiente testimonio"
-            className="hidden md:flex absolute -right-6 lg:-right-12 z-40 w-14 h-14 bg-brand-primary rounded-full items-center justify-center text-white shadow-[0_5px_15px_rgba(236,97,59,0.4)] hover:scale-105 transition-transform"
-          >
-            <svg
-              className="w-8 h-8"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
+          {/* Carousel indicators */}
+          <div className="flex justify-center gap-3 mt-4 md:mt-8">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveIndex(index)}
+                className={`w-4 h-4 rounded-full border-[2px] border-[#EC613B] transition-colors focus:outline-none ${
+                  activeIndex === index ? "bg-[#EC613B]" : "bg-transparent"
+                }`}
+                aria-label={`Ir al testimonio ${index + 1}`}
               />
-            </svg>
-          </button>
-        </div>
+            ))}
+          </div>
 
-        {/* Carousel indicators */}
-        <div className="flex justify-center gap-3 mt-4 md:mt-8">
-          {testimonials.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setActiveIndex(index)}
-              className={`w-4 h-4 rounded-full border-[2px] border-[#EC613B] transition-colors focus:outline-none ${
-                activeIndex === index ? "bg-[#EC613B]" : "bg-transparent"
-              }`}
-              aria-label={`Ir al testimonio ${index + 1}`}
-            />
-          ))}
-        </div>
-
-        {/* Aviso de testimonios */}
-        <div className="mt-12 md:mt-16 max-w-[1000px] mx-auto text-center">
-          <p className="text-[9px] md:text-[11px] text-gray-900 leading-relaxed font-sans text-justify md:text-center px-2">
-            <strong className="text-black">Aviso sobre testimonios:</strong> Los
-            resultados mostrados en estos testimonios son experiencias
-            individuales de nuestros clientes y representan casos específicos de
-            éxito tras la implementación de nuestras metodologías. Sin embargo,
-            no garantizan que todos los usuarios obtendrán los mismos
-            resultados, ya que estos dependen del compromiso, el sector, el
-            tamaño de la empresa y la ejecución de las estrategias recomendadas.
-            Cada caso de negocio es único y se trata de manera personalizada.
-          </p>
-        </div>
-      </Container>
+          {/* Aviso de testimonios */}
+          <div className="mt-12 md:mt-16 max-w-[1000px] mx-auto text-center">
+            <p className="text-[9px] md:text-[11px] text-gray-900 leading-relaxed font-sans text-justify md:text-center px-2">
+              <strong className="text-black">Aviso sobre testimonios:</strong>{" "}
+              Los resultados mostrados en estos testimonios son experiencias
+              individuales de nuestros clientes y representan casos específicos
+              de éxito tras la implementación de nuestras metodologías. Sin
+              embargo, no garantizan que todos los usuarios obtendrán los mismos
+              resultados, ya que estos dependen del compromiso, el sector, el
+              tamaño de la empresa y la ejecución de las estrategias
+              recomendadas. Cada caso de negocio es único y se trata de manera
+              personalizada.
+            </p>
+          </div>
+        </Container>
       </div>
     </Section>
   );

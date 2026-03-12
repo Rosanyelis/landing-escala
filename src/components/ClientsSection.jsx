@@ -140,8 +140,15 @@ const ClientsSection = () => {
 
             <div className="bg-[#EBEBEB] rounded-[20px] md:rounded-[30px] p-8 md:p-14 relative">
               {/* Móvil: carrusel arrastrable con ratón/táctil y auto-scroll */}
-              <div ref={sectorsCarouselRef} className="md:hidden w-full -mx-1 carousel-scroll-touch">
-                <div className="flex items-center gap-4 w-max">
+              <div className="md:hidden relative w-full">
+                <div className="absolute -left-2 top-1/2 -translate-y-1/2 z-10 w-7 h-7 flex items-center justify-center bg-white rounded-full shadow-md pointer-events-none text-[#EC613B]">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                </div>
+                <div className="absolute -right-2 top-1/2 -translate-y-1/2 z-10 w-7 h-7 flex items-center justify-center bg-white rounded-full shadow-md pointer-events-none text-[#EC613B]">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </div>
+                <div ref={sectorsCarouselRef} className="w-full -mx-1 carousel-scroll-touch">
+                  <div className="flex items-center gap-4 w-max">
                   {[...sectors, ...sectors].map((sector, index) => (
                     <div
                       key={`mobile-${index}`}
@@ -163,6 +170,7 @@ const ClientsSection = () => {
                     </div>
                   ))}
                 </div>
+              </div>
               </div>
               {/* Desktop: grid de rubros como antes */}
               <div className="hidden md:flex flex-wrap justify-center gap-4 md:gap-x-6 md:gap-y-5">
@@ -200,8 +208,15 @@ const ClientsSection = () => {
             </h3>
 
             {/* Móvil: carrusel arrastrable con ratón/táctil y auto-scroll */}
-            <div ref={clientsCarouselRef} className="md:hidden w-full -mx-1 carousel-scroll-touch">
-              <div className="flex items-center gap-6 w-max py-2">
+            <div className="md:hidden relative w-full mt-4">
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 flex items-center justify-center bg-white rounded-full shadow-md pointer-events-none text-[#EC613B]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+              </div>
+              <div className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 flex items-center justify-center bg-white rounded-full shadow-md pointer-events-none text-[#EC613B]">
+               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              </div>
+              <div ref={clientsCarouselRef} className="w-full -mx-1 carousel-scroll-touch pl-2 pr-2">
+                <div className="flex items-center gap-6 w-max py-2">
                 {[...clients, ...clients].map((logoSource, index) => (
                   <div
                     key={`mobile-client-${index}`}
@@ -218,6 +233,7 @@ const ClientsSection = () => {
                   </div>
                 ))}
               </div>
+            </div>
             </div>
             {/* Desktop: grid de logos como antes */}
             <div className="hidden md:flex flex-wrap justify-center items-center gap-6 md:gap-x-10 md:gap-y-10 max-w-[1150px] mx-auto">

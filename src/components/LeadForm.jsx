@@ -25,7 +25,7 @@ const LeadForm = () => {
 
     try {
       const response = await fetch(
-        "https://formsubmit.co/ajax/rossdigital2@gmail.com",
+        "https://formsubmit.co/ajax/hola@consultoriaparaempresa.com",
         {
           method: "POST",
           headers: {
